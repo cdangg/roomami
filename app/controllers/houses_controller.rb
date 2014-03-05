@@ -29,7 +29,7 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     if @house.update_attributes(house_params)
-      redirect_to root_url
+      redirect_to houses_url
     else
       render :new
     end

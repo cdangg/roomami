@@ -1,4 +1,4 @@
-<h1><%= @house.name %></h1>
-<%= link_to "Edit House", edit_house_path %> | <%= link_to "Get rid of this house", house_path(@house), method: :delete, data: { confirm: "Are you sure you want to do this??"} %><br/>
+<h1 style="margin-bottom: 0px"><%= @house.name %></h1>
+<%= link_to "Back", houses_path %> | <%= link_to "Edit House", edit_house_path %> | <%= link_to "Get rid of this house", house_path(@house), method: :delete, data: { confirm: "Are you sure you want to do this??"} %><br><br>
 
 <%= @house.address %>, <%= @house.city %>

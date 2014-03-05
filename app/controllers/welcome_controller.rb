@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
-  def index
-  end
+	before_filter :require_login, :only => :secret
+
+	def index
+	end
 end

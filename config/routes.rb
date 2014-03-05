@@ -1,4 +1,7 @@
 Roomami::Application.routes.draw do
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,6 +17,10 @@ Roomami::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :welcome
     resources :houses
+    resources :users
+    resources :sessions
+
+    root to: "welcome#index"
 
   # Example resource route with options:
   #   resources :products do

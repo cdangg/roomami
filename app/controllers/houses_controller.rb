@@ -9,10 +9,14 @@ class HousesController < ApplicationController
     @house = House.new
   end
 
+  def edit
+    @house = House.find(params[:id])
+  end
+
   def create
     @house = House.new(house_params)
     if @house.save
-        redirect_to root_url, :notice => "House created!"
+        redirect_to houses_url, :notice => "House created!"
       else
         render :new
       end

@@ -22,7 +22,12 @@ class HousesController < ApplicationController
       end
   end
 
+  def show
+    @house = House.find(params[:id])
+  end
+
   def update
+    @house = House.find(params[:id])
     if @house.update_attributes(house_params)
       redirect_to root_url
     else
@@ -31,6 +36,7 @@ class HousesController < ApplicationController
   end
 
   def destroy
+    @house = House.find(params[:id])
     @house.destroy
     redirect_to houses_path
   end

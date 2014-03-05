@@ -1,8 +1,8 @@
 <h1 style="margin-bottom: 0px">List of All Houses</h1>
-<%= link_to "Add House", new_house_path %> | <%= link_to "Edit House", edit_house_path(current_user) %><br><br>
+<%= link_to "Add House", new_house_path %><br><br>
 
 <% @houses.each do |house| %>
-  <%= house.name %><br>
+  <%= link_to house.name, house_path(house.id) %><br>
   <%= house.address %><br>
   <%= house.city %><br><br>
 <% end %>

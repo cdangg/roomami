@@ -2,7 +2,7 @@
 <%= link_to "Add Chore", new_chore_path %><br><br>
 <% @chores.each do |chore| %>
 	<%= chore.user_id %><br>
-  <%= chore.name %><br>
+  <%= chore.name %> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %><br>
   <%= chore.status %><br>
   <%= chore.created_at %><br><br>
 <% end %>

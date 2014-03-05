@@ -1,1 +1,3 @@
 <h1>Edit Chores</h1>
+<%= link_to "Forget it -- I did it already", chore_path(@chore), method: :delete, data: { confirm: "Are you sure you don't want someone to do this?" } %>
+<%= render 'form' %>

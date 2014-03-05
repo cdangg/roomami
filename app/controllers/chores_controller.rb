@@ -3,6 +3,7 @@ class ChoresController < ApplicationController
 
   def index
     @chores = Chore.all
+
   end
 
   def new
@@ -11,6 +12,7 @@ class ChoresController < ApplicationController
 
   def create
     @chore = Chore.new(chore_params)
+    @chore.user = current_user
 
     if @chore.save
       redirect_to chores_path, :notice => "Chore added!"

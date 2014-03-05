@@ -1,7 +1,7 @@
 <h1 style="margin-bottom: 0px">Chores</h1>
 <%= link_to "Add Chore", new_chore_path %><br><br>
 <% @chores.each do |chore| %>
-	<%= chore.user_id %><br>
+  <%= chore.user.first_name %>
   <%= chore.name %> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %><br>
   <%= chore.status %><br>
   <%= chore.created_at %><br><br>

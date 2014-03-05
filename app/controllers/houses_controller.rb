@@ -1,4 +1,6 @@
 class HousesController < ApplicationController
+  before_filter :ensure_logged_in
+
   def index
     @houses = House.all
   end

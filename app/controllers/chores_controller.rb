@@ -1,4 +1,6 @@
 class ChoresController < ApplicationController
+  before_filter :ensure_logged_in
+
   def index
     @chores = Chore.all
   end

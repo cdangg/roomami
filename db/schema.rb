@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305032205) do
+ActiveRecord::Schema.define(version: 20140305033859) do
 
   create_table "chores", force: true do |t|
     t.string   "name"

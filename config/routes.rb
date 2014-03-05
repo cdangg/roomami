@@ -19,8 +19,9 @@ Roomami::Application.routes.draw do
     resources :houses
     resources :users
     resources :sessions
+    resources :chores
 
-    root to: "welcome#index"
+    root to: 'welcome#index'
 
   # Example resource route with options:
   #   resources :products do

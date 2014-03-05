@@ -1,5 +1,6 @@
-<h1>Chores</h1>
+<h1 style="margin-bottom: 0px">Chores</h1>
+<%= link_to "Add Chore", new_chore_path %><br><br>
 <% @chores.each do |chore| %>
-  <%= chore.name %><br />
-  <%= chore.created_at %><br />
+  <%= chore.name %><br>
+  <%= chore.created_at %><br><br>
 <% end %>

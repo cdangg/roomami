@@ -1,4 +1,9 @@
 <span style="float:right"> <%= link_to "Edit Profile", edit_user_path(current_user) %></span>
 <h1>My Profile</h1>
 
-<p>HIII</p>
+<div><%= @user.first_name %> <%= @user.last_name %></div>
+<div><%= @user.email %></div>
+<div><%= @user.phone_number %></div><br />
+<div><%= @user.hometown %></div>
+<div><%= @user.bio %></div>
+<div><%= @user.interests %></div>

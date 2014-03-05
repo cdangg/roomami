@@ -1,5 +1,5 @@
 <h1>Edit Profile</h1>
-
+<%= link_to "Back to Profile", user_path(current_user) %>
 <%= form_for @user do |f| %>
 	<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name %></div>
 	<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name %></div>
@@ -9,4 +9,5 @@
 	<div class="field"><%= f.label :bio %><br /><%= f.text_area :bio %></div>
 	<div class="field"><%= f.label :interests %><br /><%= f.text_area :interests %></div>
 	<div class="actions"><%= f.submit %><br /></div>
+
 <% end %>

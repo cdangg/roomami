@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :houses through :tenancies
+  has_many :houses, through: :tenancies
   has_many :chores
   authenticates_with_sorcery!
 

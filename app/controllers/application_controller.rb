@@ -10,9 +10,11 @@ class ApplicationController < ActionController::Base
   		end
   	end
 
- #  	def current_user
- #  		@current_user ||= user_from_remember_token
-	# end
+  	def current_user
+  		@current_user ||= User.find(session[:user_id]) if session[:user_id]
+	  end
+
+    helper_method :current_user
 
 	def not_authenticated
 	redirect_to login_url, :alert => "First login to access this page."

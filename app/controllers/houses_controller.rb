@@ -10,7 +10,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(house_params)
     if @house.save
-        redirect_to welcome_url, :notice => "House created!"
+        redirect_to root_url, :notice => "House created!"
       else
         render :new
       end
@@ -18,7 +18,7 @@ class HousesController < ApplicationController
 
   def update
     if @house.update_attributes(house_params)
-      redirect_to welcome_url
+      redirect_to root_url
     else
       render :new
     end

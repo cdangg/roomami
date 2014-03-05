@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305005423) do
+ActiveRecord::Schema.define(version: 20140305032205) do
+
+  create_table "chores", force: true do |t|
+    t.string   "name"
+    t.boolean  "status"
+    t.integer  "house_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "houses", force: true do |t|
     t.string   "name"

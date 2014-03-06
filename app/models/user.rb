@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
   validates :phone_number, numericality: true, length: { is: 10 }
 
+
 end

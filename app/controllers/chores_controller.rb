@@ -12,7 +12,7 @@ class ChoresController < ApplicationController
 
   def create
     @chore = Chore.new(chore_params)
-    @chore.user = current_user
+    @chore.user_id = current_user.id
 
     if @chore.save
       redirect_to chores_path, :notice => "Chore added!"

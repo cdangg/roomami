@@ -6,5 +6,5 @@
   	<% if chore.user.id == current_user.id%>
   		<span> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></span>
   	<% end %>
-  <div><strong>Created at: </strong><%= chore.created_at %></div><br>
+  <div><strong>Last updated: </strong><%= chore.updated_at %></div><br>
 <% end %>

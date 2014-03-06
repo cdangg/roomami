@@ -1,4 +1,14 @@
 <%= form_tag sessions_path, :method => :post do %>
+
+<!-- /*	<style type="text/css">
+	input {
+		width: 300px;
+		height: 100px;
+		color: blue;
+		background-color: blue;
+	}
+	</style>*/ -->
+
   <div class="field">
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
@@ -8,5 +18,5 @@
     <%= password_field_tag :password %>
   </div>
 
-  <div class="actions"><%= submit_tag "Log in" %></div>
+  <span class="actions"><%= submit_tag "Log in" %></span>
 <% end %>

@@ -15,6 +15,7 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
+    @house.admin = current_user
     if @house.save
         redirect_to houses_url, :notice => "House created!"
       else

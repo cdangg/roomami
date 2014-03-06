@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_uniqueness_of :email
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
-  validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/ }, length: { is: 10 }
+  validates :phone_number, numericality: true, length: { is: 10 }
+
 
 end

@@ -2,6 +2,9 @@
 <%= link_to "Add Chore", new_chore_path %><br><br>
 <% @chores.each do |chore| %>
   <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %></div>
-  <div><strong>Chore: </strong><%= chore.name %> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></div>
+  <span><strong>Chore: </strong><%= chore.name %><span>
+  	<% if chore.user.id == current_user.id%>
+  		<span> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></span>
+  	<% end %>
   <div><strong>Created at: </strong><%= chore.created_at %></div><br>
 <% end %>

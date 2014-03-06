@@ -1,4 +1,4 @@
-<h1 style="margin-bottom: 0px">Chores</h1>
+<h1 style="margin-bottom: 0px"><h2 class="subheader">Chores</h2></h1>
 <%= link_to "Add Chore", new_chore_path %><br><br>
 <% @chores.each do |chore| %>
   <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %></div>

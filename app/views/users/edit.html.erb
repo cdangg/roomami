@@ -1,14 +1,38 @@
 <h1 style="margin-bottom: 0px">Edit Profile</h1>
 <%= link_to "Back to Profile", user_path(@user) %><br><br>
 
-<%= form_for @user do |f| %>
-	<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name %></div>
-	<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name %></div>
-	<div class="field"><%= f.label :email %><br /><%= f.email_field :email %></div>
-	<div class="field"><%= f.label :phone_number %><br /><%= f.telephone_field :phone_number %></div>
-	<div class="field"><%= f.label :hometown %><br /><%= f.text_field :hometown %></div>
-	<div class="field"><%= f.label :bio %><br /><%= f.text_area :bio %></div>
-	<div class="field"><%= f.label :interests %><br /><%= f.text_area :interests %></div>
-	<div class="actions"><%= f.submit %><br /></div>
+<form>
+	<%= form_for @user do |f| %>
+		<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name %></div>
+		<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name %></div>
+		<div class="field"><%= f.label :email %><br /><%= f.email_field :email %></div>
+		<div class="field"><%= f.label :phone_number %><br /><%= f.telephone_field :phone_number %></div>
+		<div class="field"><%= f.label :hometown %><br /><%= f.text_field :hometown %></div>
+		<div class="field"><%= f.label :bio %><br /><%= f.text_area :bio %></div>
+		<div class="field"><%= f.label :interests %><br /><%= f.text_area :interests %></div>
+		<div class="actions"><%= f.submit %><br /></div>
+	<% end %>
+</form>
 
-<% end %>
+<!-- <form>
+  <label>Details</label>
+  <input type="text" class="twelve" placeholder="First Name" />
+  <div class="row">
+    <div class="six columns">
+      <input type="text" placeholder="Last Name" />
+    </div>
+    <div class="three columns">
+      <input type="text" placeholder="Email" />
+    </div>
+    <div class="three columns">
+      <input type="text" placeholder="Phone Number" />
+    </div>
+    <div class="three columns">
+      <input type="text" placeholder="Hometown" />
+    </div>
+    <div class="three columns">
+      <input type="text" placeholder="Interests" />
+    </div>
+  </div>
+  <textarea placeholder="Bio"></textarea>
+</form> -->

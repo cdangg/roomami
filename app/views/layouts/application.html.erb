@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Roomami</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-  <div id="flash">
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+
+<div class="fixed">
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "roomami", root_url %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+
+    <% if current_user %>
+    <ul class="center">
+      <li class="divider"></li>
+      <li><%= link_to "Home", root_url %></li>
+      <li class="divider"></li>
+      <li><%= link_to "My Profile",  user_path(current_user) %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Houses", houses_url %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Chores", chores_url %></li>
+    </ul>
+    <span style="float: right">Logged in as <%= current_user.email %>.
+  <%= link_to "Log out", logout_path %></span>
+
+  <% else %>
+    <%= link_to "Sign up", signup_path %> or
+    <%= link_to "Log in", login_path %>.
+  <% end %>
+
+ <div id="flash">
     <% if flash[:notice] %>
       <p id="notice"><%= flash[:notice] %></p>
     <% end %>
@@ -17,21 +62,17 @@
     <% end %>
   </div>
 
-  <% if current_user %>
-  <%= link_to "Home", root_url %>
-  <%=link_to "My Profile", user_path(current_user)%>
-  <%=link_to "Houses", houses_url%>
-  <%=link_to "Chores", chores_url%>
-  <span style="float: right">Logged in as <%= current_user.email %>.
-  <%= link_to "Log out", logout_path %></span>
+  </section>
+</nav>
+</div>
 
-  <% else %>
-    <%= link_to "Sign up", signup_path %> or
-    <%= link_to "log in", login_path %>.
-  <% end %>
 
-<%= yield %>
-<%= params %>
+<div class="row">
+  <div class="columns"><%= yield %></div>
+</div>
 
-</body>
+
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

@@ -9,9 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
-  		redirect_to root_url, :notice => "Signed up!"
+    @user = User.new(user_params)
+    if @user.save
+      auto_login(@user)
+      flash[:success] = "Welcome to RoomAmi"
+      redirect_to edit_user_path(current_user)
   	else
   		render :new
   	end
@@ -22,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      redirect_to user_path(current_user)
+      redirect_to root_url
     else
       render :edit
     end

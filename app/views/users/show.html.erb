@@ -1,5 +1,5 @@
 <h1 style="margin-bottom: 0px">My Profile</h1>
-<span> <%= link_to "Edit Profile", edit_user_path(current_user) %></span><br><br>
+<span> <%= link_to "Edit Profile", edit_user_path(@user) %></span><br><br>
 
 <div><%= @user.first_name %> <%= @user.last_name %></div>
 <div><%= @user.email %></div>
@@ -7,3 +7,4 @@
 <div>Hometown: <%= @user.hometown %></div>
 <div>Biography: <%= @user.bio %></div>
 <div>Interests: <%= @user.interests %></div>
+<%= current_user.inspect %>

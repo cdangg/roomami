@@ -2,7 +2,17 @@
 <%= link_to "Add House", new_house_path %><br><br>
 
 <% @houses.each do |house| %>
-  <%= link_to house.name, house_path(house.id) %><br>
-  <%= house.address %><br>
-  <%= house.city %><br><br>
+  <div style ="border: 1.5px solid black; width: 400px; height: 100px; margin-bottom: 15px; border-bottom: 1px dashed">
+	  <div style="display: inline; float: left; margin-left: 15px; margin-top: 5px;">
+	  <%= link_to house.name, house_path(house.id) %><br>
+	  <%= house.address %><br>
+	  <%= house.city %><br>
+	  <strong>Bedrooms: </strong><%= house.bedrooms %><br>
+	  <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+	  </div>
+	  <div style="float: right; display: inline-block">
+	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 18px; margin: 0px; padding: 0px;"><%= "+" %></button><br>
+	  </div>
+  </div>
+
 <% end %>

@@ -45,13 +45,15 @@
       <li class="divider"></li>
       <li><%= link_to "Chores", chores_url %></li>
     </ul>
-    <span style="float: right">Logged in as <%= current_user.email %>.
-  <%= link_to "Log out", logout_path %></span>
+    <span style="float: right"><font color=white>Logged in as <%= current_user.email %>. |
+  <%= link_to "Log out", logout_path %></font></span>
 
   <% else %>
     <%= link_to "Sign up", signup_path %> or
     <%= link_to "Log in", login_path %>.
   <% end %>
+
+
 
  <div id="flash">
     <% if flash[:notice] %>
@@ -62,8 +64,8 @@
     <% end %>
   </div>
 
-  </section>
-</nav>
+    </section>
+  </nav>
 </div>
 
 

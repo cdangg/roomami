@@ -1,7 +1,16 @@
 <h1 style="margin-bottom: 0px">Edit Profile</h1>
 <%= link_to "Back to Profile", user_path(@user) %><br><br>
-
 <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 	<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name %></div>
 	<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name %></div>
 	<div class="field"><%= f.label :email %><br /><%= f.email_field :email %></div>

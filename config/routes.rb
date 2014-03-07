@@ -20,6 +20,7 @@ Roomami::Application.routes.draw do
     resources :users
     resources :sessions
     resources :chores
+    resources :tenancies
 
     root to: 'welcome#index'
 

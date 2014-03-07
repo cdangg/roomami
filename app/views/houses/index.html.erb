@@ -24,7 +24,8 @@
       <% end %>
   	  </div>
   	  <div style="float: right; display: inline-block">
-  	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 22px; margin: 0px; padding: 0px;"><%= "+" %></button><br>
+  	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 22px; margin: 0px; padding: 0px;"><%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
+      </button><br>
   	  </div>
     </div>
   <% end %>
@@ -41,7 +42,9 @@
     	  <strong>Bathrooms: </strong><%= house.bedrooms %><br>
     	  </div>
     	  <div style="float: right; display: inline-block">
-    	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 18px; margin: 0px; padding: 0px;"><%= "+" %></button><br>
+    	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 18px; margin: 0px; padding: 0px;">
+          <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
+        </button><br>
     	  </div>
       </div>
   <% end %>

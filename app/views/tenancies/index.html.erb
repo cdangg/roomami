@@ -9,6 +9,6 @@
   <p>Enter a house name</p>
 <% else %>
   <% @houses.each do |h| %>
-    <%= link_to h.name, tenancies_path({house_id: h.id}), method: :post %>
+    <%= link_to h.name, tenancies_path({house_id: h.id, after_goto: welcome_path(current_user) }), method: :post %>
   <% end %>
 <% end %>

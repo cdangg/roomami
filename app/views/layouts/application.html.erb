@@ -54,7 +54,6 @@
   <% end %>
 
 
-
  <div id="flash">
     <% if flash[:notice] %>
       <p id="notice"><%= flash[:notice] %></p>
@@ -116,5 +115,6 @@
 
 
     <%= javascript_include_tag "application" %>
+    <%= params %>
   </body>
 </html>

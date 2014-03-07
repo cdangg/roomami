@@ -23,7 +23,7 @@
 
   <body>
 
-
+    <!-- Nav Bar -->
 
 <div class="fixed">
 <nav class="top-bar">
@@ -68,10 +68,50 @@
   </nav>
 </div>
 
+  <!-- End Nav
 
-<div class="row">
-  <div class="columns"><%= yield %></div>
-</div>
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-12 columns" role="content">
+
+        <%= yield %>
+
+    </div>
+
+    <!-- End Main Content -->
+
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Roomami 2014</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
 
 
 

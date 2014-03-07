@@ -3,7 +3,7 @@ Hi, <%=@user.first_name%>!
 <hr />
 <div class="row">
   <div class="large-12 columns">
-    <h2 class="subheader">Dashboard</h2>
+    <h2 class="subheader">Dashboard   <%= image_tag("dashboardpic.png", :size => "40x40") %></h2>
   </div>
 </div>
 <!-- <br>
@@ -17,36 +17,33 @@ Hi, <%=@user.first_name%>!
 <br>
 
 
-<!-- <div class="row">
-  <div class="small-8 columns">
-    <h3 class="subheader">Current Chores List</h3>
-      <div class="panel">
-        <div class="small-8 columns">
-        <ul>
-          <li> Clean dishes!</li>
-          <li> Do Laundry </li>
-          </ul>
-        </div></div>
-      <h3 class="subheader">  Completed Chore List</h3>
-      <div class="panel"><div class="small-4 columns">Done Mopping</div></div>
-  <div class="small-4 columns">Notes</div>
-</div> -->
 
-
-<div class="tabs-content vertical">
-  <div class="content active" id="panel1a">
+ <div class="large-9 columns" role="content">
     <div class="panel">
-    <p>Panel 1 content goes here.</p>
+    <h5>Current Chore List</h5>
+        <li>Clean dishes</li>
+        <li>Mop floors</li>
     </div>
+  <div class="panel">
+    <h5>Completed Chores List</h5>
+        <li>Clean Washroom</li>
   </div>
-  <div class="content" id="panel2a">
-    <p>Panel 2 content goes here.</p>
-  </div>
-  <div class="content" id="panel3a">
-    <p>Panel 3 content goes here.</p>
-  </div>
-  <div class="content" id="panel4a">
-    <p>Panel 4 content goes here.</p>
+  <div class="panel">
+    <h5>Miscellaneous</h5>
   </div>
 </div>
 
+  <!-- Sidebar -->
+
+    <aside class="large-3 columns">
+
+
+      <div class="panel">
+        <h5>Notes</h5>
+        Hello roommates! <br> Let's OWWWWN this appppp!
+        <a href="#">Read More →</a>
+      </div>
+
+    </aside>
+
+    <!-- End Sidebar -->

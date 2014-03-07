@@ -79,7 +79,7 @@ $em-base: 16px !default;
 
 // Colors
 
-$primary-color: #B3BF56;
+$primary-color: #25B4A1;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -894,12 +894,12 @@ $primary-color: #B3BF56;
 // Panel Variables
 //
 
-$panel-dashboard: #B3BF56;
+$panel-dashboard: #25B4A1;
 
 // We use these to control the background and border styles
 
 $panel-bg: $panel-dashboard;
-// $panel-border-style: solid;
+$panel-border-style: none;
 // $panel-border-size: 1px;
 
 // We use this % to control how much we darken things on hover

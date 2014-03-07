@@ -1,120 +1,104 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
   <head>
-  	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
+
     <!-- Nav Bar -->
 
-<div class="fixed">
-<nav class="top-bar">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "roomami", root_url %></a></h1>
-    </li>
-  </ul>
-  <section class="top-bar-section">
+    <div class="fixed">
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "roomami", root_url %></a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
 
-    <% if current_user %>
-    <ul class="center">
-      <li class="divider"></li>
-      <li><%= link_to "Home", welcome_path(current_user) %></li>
-      <li class="divider"></li>
-      <li><%= link_to "My Profile", user_path(current_user) %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Houses", houses_url %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Chores", chores_url %></li>
-    </ul>
-    <span style="float: right; margin-right: 20px"><font color=white>Welcome, <%= current_user.first_name %> <%= current_user.last_name %>! |
-  <%= link_to "Log out", logout_path %></font></span>
+        <% if current_user %>
+        <ul class="center">
+          <li class="divider"></li>
+          <li><%= link_to "Home", welcome_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Houses", houses_url %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Chores", chores_url %></li>
+        </ul>
+        <span style="float: right; margin-right: 20px"><font color=white>Welcome, <%= current_user.first_name %>
+        <%= link_to "Log out", logout_path %></font></span>
 
-  <% else %>
-    <span style="float: right"><%= link_to "Sign up", signup_path %> <font color= "#F2F2F2">or</font>
-    <%= link_to "Log in", login_path %>.</span>
-  <% end %>
-
-
- <div id="flash">
-    <% if flash[:notice] %>
-      <p id="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
-  </div>
-
-    </section>
-  </nav>
-</div>
-
-  <!-- End Nav
+      <% else %>
+        <span style="float: right"><%= link_to "Sign up", signup_path %> <font color= "#F2F2F2">or</font>
+        <%= link_to "Log in", login_path %>.</span>
+      <% end %>
 
 
-  <!-- Main Page Content and Sidebar -->
-
-  <div class="row">
-
-    <!-- Main Blog Content -->
-    <div class="large-12 columns" role="content">
-
-        <%= yield %>
-
-    </div>
-
-    <!-- End Main Content -->
-
-  </div>
-
-  <!-- End Main Content and Sidebar -->
-
-
-  <!-- Footer -->
-
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© Roomami 2014</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
-        </div>
+     <div id="flash">
+        <% if flash[:notice] %>
+          <p id="notice"><%= flash[:notice] %></p>
+        <% end %>
+        <% if flash[:alert] %>
+          <p id="alert"><%= flash[:alert] %></p>
+        <% end %>
       </div>
+
+        </section>
+      </nav>
     </div>
-  </footer>
+
+      <!-- End Nav
 
 
+      <!-- Main Page Content and Sidebar -->
+      <div class="row">
+
+        <!-- Main Blog Content -->
+        <div class="large-12 columns" role="content">
+
+            <%= yield %>
+
+        </div>
+
+        <!-- End Main Content -->
+
+      </div>
+      <!-- End Main Content and Sidebar -->
 
 
+      <!-- Footer -->
+
+      <footer class="row">
+        <div class="large-12 columns">
+          <hr />
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Roomami 2014</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
 
 
-    <%= javascript_include_tag "application" %>
-    <%= params %>
   </body>
 </html>

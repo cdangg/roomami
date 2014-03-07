@@ -34,8 +34,6 @@ end
 
 gem 'sorcery'
 
-gem 'zurb-foundation'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

@@ -894,9 +894,11 @@ $primary-color: #B3BF56;
 // Panel Variables
 //
 
+$panel-dashboard: #B3BF56;
+
 // We use these to control the background and border styles
 
-// $panel-bg: darken(#fff, 5%);
+$panel-bg: $panel-dashboard;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1255,7 +1257,11 @@ $primary-color: #B3BF56;
 
 // Background color for the top bar
 
-$topbar-bg-color: #2A3E59;
+$topbar-transparent: rgba(42,62,89,0.9);
+
+$topbar-bg-color: $topbar-transparent;
+
+
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1289,7 +1295,7 @@ $hover-font-color: #2A3E59;
 
 // $topbar-link-color: #fff;
 $topbar-link-color-hover: #2A3E59;
-// $topbar-link-color-active: #fff;
+$topbar-link-color-active: #fff;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: em-calc(13);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%

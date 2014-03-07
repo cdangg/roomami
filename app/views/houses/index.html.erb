@@ -1,17 +1,19 @@
-<h2 class="subheader">Houses</h2>
+<h2 class="subheader" style="margin-bottom: 0px">Houses</h2>
 <%= link_to "Add House", new_house_path %><br><br>
 
 <% @houses.each do |house| %>
-  <div style ="display: inline-block; border: 1.5px solid black; width: 400px; height: 100px; margin-bottom: 15px; border-bottom: 1px dashed">
-	  <div style="display: inline; float: left; margin-left: 15px; margin-top: 5px;">
+  <div style="float: left; display: inline-block; height: 125px; width: 150px; border: 1px solid black"><img src="http://www.hkpropertyexchange.com/wp-content/uploads/spe/thumb_036.jpg" style="height: 125px; width: 150px" /></div>
+  <div style="border: 1.5px solid black; width: 1000px; height: 125px; margin-bottom: 15px; border-bottom: 1px dashed">
+	  <div style="float: left; margin-left: 15px; margin-top: 5px;">
 	  <%= link_to house.name, house_path(house.id) %><br>
 	  <%= house.address %><br>
 	  <%= house.city %><br>
 	  <strong>Bedrooms: </strong><%= house.bedrooms %><br>
 	  <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+	  <strong>Description: </strong><%= house.description %><br>
 	  </div>
 	  <div style="float: right; display: inline-block">
-	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 18px; margin: 0px; padding: 0px;"><%= "+" %></button><br>
+	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 22px; margin: 0px; padding: 0px;"><%= "+" %></button><br>
 	  </div>
   </div>
 

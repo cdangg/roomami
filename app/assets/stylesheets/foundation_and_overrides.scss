@@ -1123,7 +1123,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: rgba(42,62,89,0.9);
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1192,5 +1192,20 @@
 //
 
 // $include-html-visibility-classes: $include-html-classes;
+
+
+$primary-color: #25B4A1;
+
+$hover-navbar-color: #C1CBD9;
+$hover-font-color: #2A3E59;
+
+$topbar-link-color-hover: #2A3E59;
+$topbar-link-color-active: #fff;
+
+$topbar-link-bg-hover: $hover-navbar-color;
+
+$panel-dashboard: #25B4A1;
+$panel-bg: $panel-dashboard;
+$panel-border-style: none;
 
 @import 'foundation';

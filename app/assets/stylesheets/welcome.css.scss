@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-bar-section {
-  overflow: auto;
-  // text-align: center;
+// .top-bar-section {
+//   overflow: auto;
+//   // text-align: center;
 
-  & > ul {
-    display: inline-block;
-  }
+//   & > ul {
+//     display: inline-block;
+//   }
+// }
+
+.main-container {
+  margin-top: 60px;
+}
+
+.top-bar {
+  background: rgba(42,62,89,0.9);
 }
 

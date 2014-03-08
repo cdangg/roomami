@@ -16,4 +16,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){ jQuery(document).foundation(); });

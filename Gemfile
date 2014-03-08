@@ -33,8 +33,7 @@ group :doc do
 end
 
 gem 'sorcery'
-
-gem 'zurb-foundation'
+gem 'foundation-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

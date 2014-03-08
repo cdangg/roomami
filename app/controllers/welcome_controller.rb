@@ -7,5 +7,7 @@ class WelcomeController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @complete = Chore.complete
+    @pending = Chore.pending
   end
 end

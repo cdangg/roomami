@@ -21,12 +21,15 @@ Hi, <%=@user.first_name%>!
  <div class="large-9 columns" role="content">
     <div class="panel">
     <h5>Current Chore List</h5>
-        <li>Clean dishes</li>
-        <li>Mop floors</li>
+      <% @pending.each do |chore| %>
+        <li> <%= chore.name %></li>
+      <% end %>
     </div>
   <div class="panel">
     <h5>Completed Chores List</h5>
-        <li>Clean Washroom</li>
+      <% @complete.each do |chore| %>
+        <li><%= chore.name %></li>
+      <% end %>
   </div>
   <div class="panel">
     <h5>Miscellaneous</h5>

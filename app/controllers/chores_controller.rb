@@ -2,7 +2,7 @@ class ChoresController < ApplicationController
   before_filter :ensure_logged_in
 
   def index
-    @chores = Chore.all
+    @chores = Chore.pending
 
   end
 
@@ -29,7 +29,16 @@ class ChoresController < ApplicationController
     else
       render :edit, :alert => "Invalid request"
     end
+    @chore.status = false
+    @chore.save
 
+  end
+
+  def complete_task
+    @chore = Chore.find(params[:id])
+    @chore.status = true
+    @chore.save
+    redirect_to chores_path
   end
 
   def edit

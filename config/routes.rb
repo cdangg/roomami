@@ -19,7 +19,9 @@ Roomami::Application.routes.draw do
     resources :houses
     resources :users
     resources :sessions
-    resources :chores
+    resources :chores do
+      patch 'complete_task', on: :collection
+    end
     resources :tenancies
 
     root to: 'welcome#index'

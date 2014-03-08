@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307173213) do
+ActiveRecord::Schema.define(version: 20140308011931) do
 
   create_table "chores", force: true do |t|
     t.string   "name"
-    t.boolean  "status"
     t.integer  "house_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status",     default: false
   end
 
   create_table "houses", force: true do |t|

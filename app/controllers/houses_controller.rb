@@ -2,7 +2,10 @@ class HousesController < ApplicationController
   before_filter :ensure_logged_in
 
   def index
-    @houses = House.all
+    @created_houses = current_user.created_houses
+    if params[:search]
+      @houses = House.where("name LIKE ?", "%#{params[:search]}%")
+    end
   end
 
   def edit

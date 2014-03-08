@@ -18,7 +18,7 @@ class TenanciesController < ApplicationController
     @tenancy.house = House.find(params[:house_id])
     if @tenancy.save
       flash[:notice] = "Tenancy created"
-      redirect_to welcome_path(current_user)
+      redirect_to params[:after_goto]
     else
       flash.now[:alert] = "Tenancy already exists"
       render :index

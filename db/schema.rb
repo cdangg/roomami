@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308011931) do
+ActiveRecord::Schema.define(version: 20140308033139) do
 
   create_table "chores", force: true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20140308011931) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "status",     default: false
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "houses", force: true do |t|

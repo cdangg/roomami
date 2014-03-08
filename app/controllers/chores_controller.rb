@@ -2,12 +2,17 @@ class ChoresController < ApplicationController
   before_filter :ensure_logged_in
 
   def index
-    @chores = Chore.pending
-
+    if params[:house_id]
+      @house = House.find(params[:house_id])
+    else
+      @house = current_user.houses.first
+    end
+    @chores = @house.chores.pending
   end
 
   def new
-    @chore = Chore.new
+    @house = House.find(params[:house_id])
+    @chore = @house.chores.new()
   end
 
   def create
@@ -31,7 +36,6 @@ class ChoresController < ApplicationController
     end
     @chore.status = false
     @chore.save
-
   end
 
   def complete_task
@@ -53,6 +57,6 @@ class ChoresController < ApplicationController
 
   private
   def chore_params
-    params.require(:chore).permit(:house_id, :name, :status, :user_id)
+    params.require(:chore).permit(:house_id, :name, :status)
   end
 end

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :tenancies
   has_many :houses, through: :tenancies
   has_many :roommates, through: :houses, source: :tenants
+  has_many :comments, as: :commentable
 
   has_many :created_houses, class_name: "House"
   has_many :chores

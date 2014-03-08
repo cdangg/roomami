@@ -1,5 +1,5 @@
 <br />
-Hi, <%=@user.first_name%>!
+Hi, <%=current_user.first_name%>!
 <hr />
 <div class="row">
   <div class="large-12 columns">
@@ -16,18 +16,24 @@ Hi, <%=@user.first_name%>!
 </div> -->
 <br>
 
-
+<% if current_user && current_user.houses.any? %>
+  <ul>
+    <% current_user.houses.each do |h| %>
+        <li><%= link_to h.name, welcome_path(house_id: h.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
 
  <div class="large-9 columns" role="content">
     <div class="panel">
     <h5>Current Chore List</h5>
-      <% @pending.each do |chore| %>
+      <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
       <% end %>
     </div>
   <div class="panel">
     <h5>Completed Chores List</h5>
-      <% @complete.each do |chore| %>
+      <% @house.chores.complete.each do |chore| %>
         <li><%= chore.name %></li>
       <% end %>
   </div>
@@ -43,10 +49,9 @@ Hi, <%=@user.first_name%>!
 
       <div class="panel">
         <h5>Notes</h5>
-        Hello roommates! <br> Let's OWWWWN this appppp!
+
         <a href="#">Read More →</a>
       </div>
-
     </aside>
 
     <!-- End Sidebar -->

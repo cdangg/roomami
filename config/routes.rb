@@ -16,6 +16,7 @@ Roomami::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :welcome
+
     resources :houses
     resources :users
     resources :sessions

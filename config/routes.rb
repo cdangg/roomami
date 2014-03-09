@@ -16,6 +16,7 @@ Roomami::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :welcome
+
     resources :houses
     resources :users
     resources :sessions
@@ -23,6 +24,7 @@ Roomami::Application.routes.draw do
       patch 'complete_task', on: :collection
     end
     resources :tenancies
+    resources :comments
 
     root to: 'welcome#index'
 

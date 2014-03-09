@@ -1,5 +1,5 @@
 <br />
-Hi, <%=@user.first_name%>!
+Hi, <%=current_user.first_name%>!
 <hr />
 <div class="row">
   <div class="large-12 columns">
@@ -15,7 +15,6 @@ Hi, <%=@user.first_name%>!
     </div>
 </div> -->
 <br>
-
 <!-- sub nav -->
 
   <dl class="sub-nav">
@@ -28,16 +27,25 @@ Hi, <%=@user.first_name%>!
 
 <!-- end sub nav -->
 
+<% if current_user && current_user.houses.any? %>
+  <ul>
+    <% current_user.houses.each do |h| %>
+        <li><%= link_to h.name, welcome_path(house_id: h.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
  <div class="large-9 columns" role="content">
     <div class="panel">
     <h5>Current Chore List</h5>
-      <% @pending.each do |chore| %>
+      <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
       <% end %>
     </div>
   <div class="panel">
     <h5>Completed Chores List</h5>
-      <% @complete.each do |chore| %>
+      <% @house.chores.complete.each do |chore| %>
         <li><%= chore.name %></li>
       <% end %>
   </div>
@@ -50,13 +58,34 @@ Hi, <%=@user.first_name%>!
 
     <aside class="large-3 columns">
 
-
+    <% if current_user %>
       <div class="panel">
+        <% @comments.each do |comment|%>
+          <%= comment.content %>
+            <% if comment.user != nil %>
+              <em>by <%= comment.user.first_name %></em>
+            <% end %>
+          <% end %>
         <h5>Notes</h5>
-        Hello roommates! <br> Let's OWWWWN this appppp!
+        <%= form_for(@comment) do |f|%>
+          <% if @comment.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this review from being saved</h2>
+              <ul>
+                <% @comment.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+           <% end %>
+            <%= f.text_area :content %>
+            <%= f.submit %>
+        <% end %>
+      <% else %>
+        <p>Please <%= link_to "log in", new_session_path %>to add a review.</p>
+      <% end %>
         <a href="#">Read More →</a>
       </div>
-
     </aside>
 
     <!-- End Sidebar -->

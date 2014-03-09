@@ -1,10 +1,22 @@
 <h1 style="margin-bottom: 0px"><h2 class="subheader">Chores</h2></h1>
-<%= link_to "Add Chore", new_chore_path %><br><br>
-<% @chores.each do |chore| %>
-  <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %> | <%= link_to "I finished it!", complete_task_chores_path(id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> </div>
-  <span><strong>Chore: </strong><%= chore.name %><span>
-  	<% if chore.user.id == current_user.id%>
-  		<span> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></span>
-  	<% end %>
-  <div><strong>Last updated: </strong><%= chore.updated_at %></div><br>
+
+<% if current_user && current_user.houses.any? %>
+  <ul>
+    <% current_user.houses.each do |h| %>
+      <li><%= link_to h.name, chores_path(h.id, house_id: h.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Add Chore", new_chore_path(house_id: @house.id) %><br><br>
+
+<% if current_user.houses %>
+  <% @chores.each do |chore| %>
+    <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %> | <%= link_to "I finished it!", complete_task_chores_path(id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> </div>
+    <span><strong>Chore: </strong><%= chore.name %><span>
+      <% if chore.user.id == current_user.id%>
+        <span> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></span>
+      <% end %>
+    <div><strong>Last updated: </strong><%= chore.updated_at %></div><br>
+  <% end %>
 <% end %>

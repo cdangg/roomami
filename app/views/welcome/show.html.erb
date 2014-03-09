@@ -56,16 +56,16 @@ Hi, <%=current_user.first_name%>!
   <!-- Sidebar -->
 
     <aside class="large-3 columns">
-
-    <% if current_user %>
+    <h3>Say Something!</h3>
+    <% if current_user && current_user.houses.any? %>
       <div class="panel">
         <% @comments.each do |comment|%>
-          <%= comment.content %>
-            <% if comment.user != nil %>
-              <em>by <%= comment.user.first_name %></em>
+          <% if comment.user != nil %>
+            <%= comment.user.first_name %> says:
+              <%= comment.content %><br/>
             <% end %>
           <% end %>
-        <h5>Notes</h5>
+
         <%= form_for(@comment) do |f|%>
           <% if @comment.errors.any? %>
             <div id="error_explanation">
@@ -76,9 +76,15 @@ Hi, <%=current_user.first_name%>!
                 <% end %>
               </ul>
             </div>
-           <% end %>
+          <% end %>
+          <br/>
+          <%= f.hidden_field :house_id, value: @house.id %>
+           <div class="field">
             <%= f.text_area :content %>
+           </div>
+           <div class="actions">
             <%= f.submit %>
+           </div>
         <% end %>
       <% else %>
         <p>Please <%= link_to "log in", new_session_path %>to add a review.</p>

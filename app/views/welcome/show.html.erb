@@ -22,8 +22,16 @@ Hi, <%=current_user.first_name%>!
     <dt>Houses:</dt>
       <% current_user.houses.each do |h| %>
         <dd><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
-      <% end %>
+       <% end %>
     </dl>
+
+  <dl class="tabs">
+    <dt>Houses:</dt>
+      <% current_user.houses.each do |h| %>
+        <dd><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
+      <% end %>
+  </dl>
+
 <% end %>
 <!-- end sub nav -->
 

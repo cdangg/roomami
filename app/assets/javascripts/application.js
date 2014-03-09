@@ -17,3 +17,9 @@
 //= require_tree .
 
 $(function(){ jQuery(document).foundation(); });
+
+<script type="text/javascript">
+   $(window).load(function() {
+       $('#gallery').orbit();
+   });
+</script>

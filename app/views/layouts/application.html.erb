@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "roomami" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -14,6 +14,46 @@
 
   <body>
 
+  <div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Foundation</h1>
+      </section>
+
+      <section class="right-small">
+        <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Foundation</label></li>
+        <li><a href="#">The Psychohistorians</a></li>
+        ...
+      </ul>
+    </aside>
+
+    <aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Users</label></li>
+        <li><a href="#">Hari Seldon</a></li>
+        ...
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <!-- content goes here -->
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
 
     <!-- Nav Bar -->
 
@@ -109,9 +149,6 @@
         </div>
       </footer>
 
-    <script src="/js/vendor/jquery.js"></script>
-    <script src="/js/vendor/fastclick.js"></script>
-    <script src="/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>

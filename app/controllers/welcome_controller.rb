@@ -6,8 +6,16 @@ class WelcomeController < ApplicationController
 	end
 
   def show
-    @user = User.find(params[:id])
-    @complete = Chore.complete
-    @pending = Chore.pending
+
+    if current_user.houses.empty?
+      redirect_to houses_path
+    elsif params[:house_id]
+      @house = House.find(params[:house_id])
+    else
+      @house = current_user.houses.first
+    end
+
+    @comment = current_user.comments.new
+    @comments = @house.comments.order(created_at: :desc)
   end
 end

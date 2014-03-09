@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      flash[:success] = "Welcome to RoomAmi"
+      flash[:success] = "Welcome to roomami"
       redirect_to edit_user_path(current_user)
   	else
   		render :new

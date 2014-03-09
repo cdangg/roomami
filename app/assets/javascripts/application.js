@@ -18,8 +18,19 @@
 
 $(function(){ jQuery(document).foundation(); });
 
-<script type="text/javascript">
-   $(window).load(function() {
-       $('#gallery').orbit();
-   });
-</script>
+$(document).on('page:change', function() {
+
+
+  // dl -> id="user-house-list", data-active-id= ??
+  // a (link) -> class: "house-tab", data: { id: ?? }
+  var userHouseList = $('#user-house-list');
+  if (userHouseList.length) {
+    var currentlyViewing = userHouseList.data('activeId');
+    var houseLink = userHouseList.children('dd').children('a.house-tab');
+    houseLink.each(function() {
+      if ($(this).data('id') === currentlyViewing) {
+        $(this).addClass('active')
+      }
+    })
+  }
+});

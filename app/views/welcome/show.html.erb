@@ -18,21 +18,17 @@ Hi, <%=current_user.first_name%>!
 
 <!-- sub nav -->
 <% if current_user && current_user.houses.any? %>
+
   <dl class="sub-nav">
-    <dt>Houses:</dt>
+      <dt>Houses:</dt>
       <% current_user.houses.each do |h| %>
-        <dd><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
+        <dd class="hello"><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
        <% end %>
     </dl>
 
-  <dl class="tabs">
-    <dt>Houses:</dt>
-      <% current_user.houses.each do |h| %>
-        <dd><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
-      <% end %>
-  </dl>
 
 <% end %>
+
 <!-- end sub nav -->
 
  <div class="large-9 columns" role="content">

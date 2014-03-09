@@ -15,26 +15,17 @@ Hi, <%=current_user.first_name%>!
     </div>
 </div> -->
 <br>
-<!-- sub nav -->
 
+<!-- sub nav -->
+<% if current_user && current_user.houses.any? %>
   <dl class="sub-nav">
     <dt>Houses:</dt>
-    <dd class="active"><a href="#">All</a></dd>
-    <dd><a href="#">House 1</a></dd>
-    <dd><a href="#">House 2</a></dd>
-    <dd><a href="#">House 3</a></dd>
-  </dl>
-
-<!-- end sub nav -->
-
-<% if current_user && current_user.houses.any? %>
-  <ul>
-    <% current_user.houses.each do |h| %>
-        <li><%= link_to h.name, welcome_path(house_id: h.id) %></li>
-    <% end %>
-  </ul>
+      <% current_user.houses.each do |h| %>
+        <dd><%= link_to h.name, welcome_path(house_id: h.id) %></dd>
+      <% end %>
+    </dl>
 <% end %>
-
+<!-- end sub nav -->
 
  <div class="large-9 columns" role="content">
     <div class="panel">

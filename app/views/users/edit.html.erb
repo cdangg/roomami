@@ -3,7 +3,7 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
+       <small class="error">Invalid Formats</small>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
@@ -13,13 +13,13 @@
   <% end %>
 
 <form>
-		<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name %></div>
-		<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name %></div>
-		<div class="field"><%= f.label :email %><br /><%= f.email_field :email %></div>
-		<div class="field"><%= f.label :phone_number %><br /><%= f.telephone_field :phone_number %></div>
-		<div class="field"><%= f.label :hometown %><br /><%= f.text_field :hometown %></div>
-		<div class="field"><%= f.label :bio %><br /><%= f.text_area :bio %></div>
-		<div class="field"><%= f.label :interests %><br /><%= f.text_area :interests %></div>
+		<div class="field"><%= f.label :first_name %><br /><%= f.text_field :first_name%></div>
+		<div class="field"><%= f.label :last_name %><br /><%= f.text_field :last_name%></div>
+		<div class="field"><%= f.label :email %><br /><%= f.email_field :email, :placeholder => "i.e. name@domain.com"%></div>
+		<div class="field"><%= f.label :phone_number %><br /><%= f.telephone_field :phone_number, :placeholder => "i.e. 4162229999"%></div>
+		<div class="field"><%= f.label :hometown %><br /><%= f.text_field :hometown%></div>
+		<div class="field"><%= f.label :bio %><br /><%= f.text_area :bio, :placeholder => "Tell us about yourself!"%></div>
+		<div class="field"><%= f.label :interests %><br /><%= f.text_area :interests%></div>
 		<div class="actions"><%= f.submit %><br /></div>
 	<% end %>
 </form>

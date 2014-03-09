@@ -6,6 +6,7 @@ class HousesController < ApplicationController
     if params[:search]
       @houses = House.where("name LIKE ?", "%#{params[:search]}%")
     end
+
   end
 
   def edit
@@ -48,7 +49,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:name, :address, :city, :bedrooms, :bathrooms, :description)
+    params.require(:house).permit(:name, :address, :city, :bedrooms, :bathrooms, :description, :longitude, :latitude)
   end
 
 end

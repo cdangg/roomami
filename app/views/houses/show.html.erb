@@ -2,6 +2,10 @@
 <%= link_to "Back", houses_path %> | <%= link_to "Edit", edit_house_path %> | <%= link_to "Delete", house_path(@house), method: :delete, data: { confirm: "Are you sure you want to do this??"} %><br><br>
 
 <div class="field"><strong>Description:</strong> <%= @house.description %></div>
-<div class="field"><strong>Address:</strong> <%= @house.address %>, <%= @house.city %></div>
+<div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
 <div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
 <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
+
+</html>

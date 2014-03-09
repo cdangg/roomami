@@ -24,6 +24,7 @@ Roomami::Application.routes.draw do
       patch 'complete_task', on: :collection
     end
     resources :tenancies
+    resources :comments
 
     root to: 'welcome#index'
 

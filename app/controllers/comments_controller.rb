@@ -1,22 +1,25 @@
 class CommentsController < ApplicationController
   def index
-    @commentable = find_commentable
-    @comments = @commentable.comments
+    @comments = Comment.all
   end
 
   def show
     @comment = Comment.find(params[:id])
   end
 
+  def new
+    @house = House.find(params[:house_id])
+    @comment = @house.comments.new
+  end
+
   def create
-    @commentable = find_commentable
-    @comment = @commentable.comments.build(params[:comment])
+    @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to :id => nil
+      redirect_to welcome_path(current_user)
     else
-      redirect_to @commentable, notice: "Comment can't be blank"
+      redirect_to :action => :show, notice: "Comment can't be blank"
     end
   end
 
@@ -26,16 +29,9 @@ class CommentsController < ApplicationController
   end
 
   private
-  def find_commentable
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.contatnize.find(value)
-      end
-    end
-    nil
-  end
+
   def comment_params
-    params.require(:comment).permit(:chat, :user_id)
+    params.require(:comment).permit(:content, :user_id, :house_id)
   end
 
 end

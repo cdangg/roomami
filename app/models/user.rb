@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :tenancies
   has_many :houses, through: :tenancies
   has_many :roommates, through: :houses, source: :tenants
-  has_many :comments, as: :commentable
+  has_many :comments
 
   has_many :created_houses, class_name: "House"
   has_many :chores
@@ -13,5 +13,13 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
   validates :phone_number, numericality: true, length: { is: 10 }, on: :update
+
+  def lived_in
+    houses.map(&:name).join(', ')
+
+    # (houses.map do |h|
+    #   h.name
+    # end).join(', ')
+  end
 
 end

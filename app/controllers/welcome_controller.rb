@@ -15,9 +15,7 @@ class WelcomeController < ApplicationController
       @house = current_user.houses.first
     end
 
-    if current_user
-      @houses = current_user.houses
-    end
-      @comments = Comment.all.order("created_at DESC")
+    @comment = current_user.comments.new
+    @comments = @house.comments.order(created_at: :desc)
   end
 end

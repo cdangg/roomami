@@ -34,6 +34,7 @@ end
 
 gem 'sorcery'
 gem 'foundation-rails'
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

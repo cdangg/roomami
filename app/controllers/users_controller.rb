@@ -32,7 +32,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @house = House.find(params[:house])
   end
 
   private

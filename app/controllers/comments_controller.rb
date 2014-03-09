@@ -13,11 +13,12 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @house = House.find(params[:comment][:house_id])
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to welcome_path(current_user)
+      redirect_to welcome_path(current_user, {house_id: @house.id})
     else
       redirect_to :action => :show, notice: "Comment can't be blank"
     end

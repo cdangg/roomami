@@ -2,10 +2,10 @@
 
 <!-- sub nav -->
 <% if current_user && current_user.houses.any? %>
-  <dl class="sub-nav">
-    <dt>Houses:</dt>
+  <dl id="user-house-list" class="sub-nav" data-active-id="<%= @house.id %>">
+    <dt>You're viewing:</dt>
       <% current_user.houses.each do |h| %>
-        <dd><%= link_to h.name, chores_path(h.id, house_id: h.id) %></dd>
+        <dd><%= link_to h.name, chores_path(h.id, house_id: h.id), data: { id: h.id }, class: "house-tab" %></dd>
       <% end %>
   </dl>
 <% end %>

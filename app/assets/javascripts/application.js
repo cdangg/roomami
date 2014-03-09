@@ -18,12 +18,19 @@
 
 $(function(){ jQuery(document).foundation(); });
 
-$(document).ready(function(){
-var str=location.href.toLowerCase();
-$(".navigation li a").each(function() {
-if (str.indexOf(this.href.toLowerCase()) > -1) {
- $("li.highlight").removeClass("highlight");
-$(this).parent().addClass("highlight");
-}
- });
- })
+$(document).on('page:change', function() {
+
+
+  // dl -> id="user-house-list", data-active-id= ??
+  // a (link) -> class: "house-tab", data: { id: ?? }
+  var userHouseList = $('#user-house-list');
+  if (userHouseList.length) {
+    var currentlyViewing = userHouseList.data('activeId');
+    var houseLink = userHouseList.children('dd').children('a.house-tab');
+    houseLink.each(function() {
+      if ($(this).data('id') === currentlyViewing) {
+        $(this).addClass('active')
+      }
+    })
+  }
+});

@@ -9,42 +9,53 @@
 <% if @houses.nil? %>
 <% else %>
   <% @houses.each do |house| %>
-    <div style="float: left; display: inline-block; height: 125px; width: 150px; border: 1px solid black"><img src="http://www.hkpropertyexchange.com/wp-content/uploads/spe/thumb_036.jpg" style="height: 125px; width: 150px" /></div>
-    <div style="border: 1.5px solid black; width: 1000px; height: 125px; margin-bottom: 15px; border-bottom: 1px dashed">
-  	  <div style="float: left; margin-left: 15px; margin-top: 5px;">
-  	  <%= link_to house.name, house_path(house.id) %><br>
-  	  <%= house.address %><br>
-  	  <%= house.city %><br>
-  	  <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-  	  <strong>Bathrooms: </strong><%= house.bedrooms %><br>
-  	  <strong>Description: </strong><%= house.description %><br>
-      <strong>Roommates: </strong>
-      <% house.tenants.each do |tenant| %>
-        <%= tenant.first_name %> <%= tenant.last_name %>,
-      <% end %>
-  	  </div>
-  	  <div style="float: right; display: inline-block">
-  	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 22px; margin: 0px; padding: 0px;"><%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
-      </button><br>
-  	  </div>
+    <div class="container">
+      <img class="house-image" src="http://www.hkpropertyexchange.com/wp-content/uploads/spe/thumb_036.jpg">
+      <div class="add-house">
+        <button class="plus-button">
+          <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
+        </div>
+      <div class="house-info">
+        <%= link_to house.name, house_path(house.id) %><br>
+        <%= house.address %><br>
+        <%= house.city %><br>
+        <strong>Bedrooms: </strong><%= house.bedrooms %><br>
+        <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+        <strong>Description: </strong><%= house.description %><br>
+        <strong>Roommates: </strong>
+        <% house.tenants.each do |tenant| %>
+          <%= tenant.first_name %> <%= tenant.last_name %>,
+        <% end %>
+
+      </div>
     </div>
   <% end %>
  <% end %>
 
+<div class="row">
+  <div class="large-12 columns">
   <h3>House(s) you belong to:</h3>
-    <% @current_user.houses.each do |house| %>
-        <div style ="display: inline-block; border: 1.5px solid black; width: 400px; height: 100px; margin-bottom: 15px; border-bottom: 1px dashed">
-    	  <div style="display: inline; float: left; margin-left: 15px; margin-top: 5px;">
-    	  <%= link_to house.name, house_path(house.id) %><br>
-    	  <%= house.address %><br>
-    	  <%= house.city %><br>
-    	  <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-    	  <strong>Bathrooms: </strong><%= house.bedrooms %><br>
-    	  </div>
-    	  <div style="float: right; display: inline-block">
-    	  <button style="color: white; float: right; height: 30px; width: 30px; display: inline; font-size: 18px; margin: 0px; padding: 0px;">
-          <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
-        </button><br>
-    	  </div>
+  </div>
+</div>
+
+
+<ul class="large-block-grid-2">
+  <% @current_user.houses.each do |house| %>
+    <li>
+      <div class="container">
+        <div class="add-house">
+          <button class="plus-button">
+            <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
+          </button>
+          </div>
+        <div class="house-info">
+          <%= link_to house.name, house_path(house.id) %><br>
+          <%= house.address %><br>
+          <%= house.city %><br>
+          <strong>Bedrooms: </strong><%= house.bedrooms %><br>
+          <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+        </div>      
       </div>
+    </li>
   <% end %>
+</ul>

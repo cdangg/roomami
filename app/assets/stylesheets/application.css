@@ -14,3 +14,35 @@
  *= require_tree .
  */
 
+/* CSS for House view */
+
+.house-image {
+	height: 125px;
+	width: 150px;
+	display: block;
+	float: left;
+}
+
+.container {
+	border: 1.5px solid #000;
+	width: 100%;
+	min-height: 127px;
+}
+
+.add-house {
+	float: right;
+	display: inline-block;
+	
+}
+
+.plus-button {
+	color: white; 
+	float: right; 
+	height: 30px; 
+	width: 30px; 
+	display: inline; 
+	font-size: 18px; 
+	margin: 0px; 
+	padding: 0px;
+
+}

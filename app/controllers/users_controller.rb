@@ -20,11 +20,9 @@ class UsersController < ApplicationController
   end
 
   def update
-
     @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
-      redirect_to welcome_path(current_user)
+      redirect_to houses_path(current_user)
     else
       render :edit
     end

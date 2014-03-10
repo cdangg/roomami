@@ -39,10 +39,10 @@
 </div>
 
 
-<ul class="large-block-grid-2">
+<ul class="small-block-grid medium-block-grid-2">
   <% @current_user.houses.each do |house| %>
-    <li>
-      <div class="container">
+    <li class="house-list">
+      <div class="container owned-houses">
         <div class="add-house">
           <button class="plus-button">
             <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
@@ -53,7 +53,9 @@
           <%= house.address %><br>
           <%= house.city %><br>
           <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-          <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+          <strong>Bathrooms: </strong><%= house.bathrooms %><br>
+          <strong>Description: </strong><%= house.description %><br>
+
         </div>      
       </div>
     </li>

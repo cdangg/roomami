@@ -13,6 +13,15 @@
   <% end %>
 
 <form>
+    <div class="field">
+      <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %><br />
+      <%= f.label 'Choose an avatar' %>
+      <%= f.file_field :avatar %>
+    </div>
+    <div class="field">
+      <%= f.check_box :remove_avatar %>
+      <%= f.label 'Remove avatar' %>
+    </div>
 		<div class="field">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name%>
@@ -24,15 +33,6 @@
 		<div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, :placeholder => "i.e. name@domain.com"%>
-    </div>
-    <div class="field">
-      <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %><br />
-      <%= f.label 'Choose an avatar' %>
-      <%= f.file_field :avatar %>
-    </div>
-    <div class="field">
-      <%= f.check_box :remove_avatar %>
-      <%= f.label 'Remove avatar' %>
     </div>
 		<div class="field">
       <%= f.label :phone_number %><br />

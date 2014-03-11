@@ -1,6 +1,7 @@
 <h1 style="margin-bottom: 0px"><h2 class="subheader">My Profile</h2></h1>
 <span> <%= link_to "Edit Profile", edit_user_path(current_user) %></span><br><br>
 
+<div><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></div>
 <div><%= @user.first_name %> <%= @user.last_name %></div>
 <div><%= @user.email %></div>
 <div><%= @user.phone_number %></div><br />

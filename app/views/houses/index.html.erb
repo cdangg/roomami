@@ -10,7 +10,7 @@
 <% else %>
   <% @houses.each do |house| %>
     <div class="container">
-      <img class="house-image" src="http://www.hkpropertyexchange.com/wp-content/uploads/spe/thumb_036.jpg">
+      <%= image_tag house.image_url(:thumb), :class =>"house-image" if house.image? %>
       <div class="add-house">
         <button class="plus-button">
           <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
@@ -20,7 +20,7 @@
         <%= house.address %><br>
         <%= house.city %><br>
         <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-        <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+        <strong>Bathrooms: </strong><%= house.bathrooms %><br>
         <strong>Description: </strong><%= house.description %><br>
         <strong>Roommates: </strong>
         <% house.tenants.each do |tenant| %>
@@ -41,7 +41,10 @@
 
 <ul class="small-block-grid medium-block-grid-2">
   <% @current_user.houses.each do |house| %>
-    <li class="house-list">
+    <li>
+      <div class="container">
+        <%= image_tag house.image_url(:thumb), :class =>"house-image" if house.image? %>
+      <li class="house-list">
       <div class="container owned-houses">
         <div class="add-house">
           <button class="plus-button">
@@ -54,9 +57,6 @@
           <%= house.city %><br>
           <strong>Bedrooms: </strong><%= house.bedrooms %><br>
           <strong>Bathrooms: </strong><%= house.bathrooms %><br>
-          <strong>Description: </strong><%= house.description %><br>
-
-        </div>      
       </div>
     </li>
   <% end %>

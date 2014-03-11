@@ -6,6 +6,12 @@
 	<div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
 	<div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
 	<div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
+  <div class="field">
+    <strong>Roomates:</strong>
+      <% @house.tenants.each do |house| %>
+        <%= link_to house.first_name, user_path(house.id) %>,
+      <% end %>
+  </div>
 </div>
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>

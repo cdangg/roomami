@@ -34,7 +34,7 @@ Hi, <%=current_user.first_name%>!
 
   <div class="panel">
     <h5>Completed Chores List</h5>
-      <% @house.chores.complete.each do |chore| %>
+      <% @house.chores.complete.limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
       <% end %>
   </div>

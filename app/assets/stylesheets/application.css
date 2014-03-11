@@ -16,6 +16,13 @@
 
 /* CSS for House view */
 
+.map-image {
+	height: 125px;
+	width: 150px;
+	display: block;
+	float: right;
+}
+
 .house-image {
 	height: 125px;
 	width: 150px;
@@ -32,29 +39,27 @@
 .add-house {
 	float: right;
 	display: inline-block;
-	
+
 }
 
 .plus-button {
-	color: white; 
-	float: right; 
-	height: 30px; 
-	width: 30px; 
-	display: inline; 
-	font-size: 18px; 
-	margin: 0px; 
+	color: white;
+	height: 30px;
+	width: 30px;
+	display: inline;
+	font-size: 18px;
+	margin: 0px;
 	padding: 0px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .plus-button > a {
 	color: inherit;
 }
 
-.owned-houses {
-	max-height: 127px;
-	overflow: auto;
-}
-
 .house-list {
 	width: 100%;
+	position: relative;
 }

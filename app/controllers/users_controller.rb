@@ -11,22 +11,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    # @user.current_step = session[:user_step]
-    # if params[:back_button]
-    #   @user.previous_step
-    # elsif @user.last_step?
-    #   @user.save
-    # else
-    #   @user.next_step
-    # end
-    # session[:user_step] = @user.current_step
-    # if @user.new_record?
-
-    #   render "new"
-    # else
-    #   redirect_to houses_path(current_user)
-    # end
-
     if @user.save
       auto_login(@user)
       flash[:success] = "Welcome to roomami"

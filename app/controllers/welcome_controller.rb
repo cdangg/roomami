@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
 	before_filter :require_login, :only => :secret
 	before_filter :ensure_logged_in, :except => :index
+  before_filter :contain_house?, :only => :show
 
 	def index
     @user = User.new

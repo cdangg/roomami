@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
   		end
   	end
 
+    def contain_house?
+      if current_user.houses.empty?
+        flash[:alert] = "Please create or find a house"
+        redirect_to houses_url(current_user)
+      end
+    end
+
   	def current_user
   		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 	  end

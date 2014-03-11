@@ -26,8 +26,13 @@
       <%= f.email_field :email, :placeholder => "i.e. name@domain.com"%>
     </div>
     <div class="field">
-      <%= f.label :avatar %><br />
+      <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %><br />
+      <%= f.label 'Choose an avatar' %>
       <%= f.file_field :avatar %>
+    </div>
+    <div class="field">
+      <%= f.check_box :remove_avatar %>
+      <%= f.label 'Remove avatar' %>
     </div>
 		<div class="field">
       <%= f.label :phone_number %><br />

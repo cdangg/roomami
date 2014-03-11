@@ -57,7 +57,7 @@ Hi, <%=current_user.first_name%>!
         <h5>Say Something!</h5>
         <% @comments.each do |comment|%>
           <%= comment.user.first_name %> says:
-            <%= comment.content %><br/><br/>
+          <%= comment.content %><br/><br/>
         <% end %>
 
         <%= form_for(@comment) do |f| %>

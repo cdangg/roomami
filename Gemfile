@@ -35,8 +35,8 @@ end
 gem 'sorcery'
 gem 'foundation-rails'
 gem 'geocoder'
-gem 'rmagick'
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

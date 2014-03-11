@@ -68,9 +68,9 @@ $panel-border-style: none;
 // We use these as default colors throughout
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
+$alert-color: #F2DEDE;
+$success-color: #DFF0D7;
+$warning-color: #F2DEDE;
 // $info-color: #a0d3e8;
 
 // We use these to make sure border radius matches unless we want it different.
@@ -262,7 +262,7 @@ $panel-border-style: none;
 // $alert-function-factor: -14%;
 
 // We use these to control border styles.
-// $alert-border-style: solid;
+$alert-border-style: none;
 // $alert-border-width: 1px;
 // $alert-border-color: scale-color($primary-color, $lightness: $alert-function-factor);
 // $alert-bottom-margin: rem-calc(20);

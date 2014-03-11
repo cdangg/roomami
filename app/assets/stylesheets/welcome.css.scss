@@ -45,3 +45,15 @@
 .logo-sign-in {
   text-align: center;
 }
+
+#title-navbar-font a{
+  &:hover, &:link, &:visited{
+  color: #fff!important;
+  font-family: 'Megrim', cursive;
+  }
+}
+
+.alert-box-margin {
+  margin-left: 80px;
+  margin-right: 80px;
+}

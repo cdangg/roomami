@@ -6,14 +6,7 @@ Hi, <%=current_user.first_name%>!
     <h2 class="subheader">Dashboard   <%= image_tag("dashboardpic.png", :size => "40x40") %></h2>
   </div>
 </div>
-<!-- <br>
- <div class="panel">
-    <div class="row">
-      <div class="large-12 column">
-        <h2 class="subheader">Notes</h2>
-      </div>
-    </div>
-</div> -->
+
 <br>
 
 <!-- sub nav -->
@@ -29,28 +22,29 @@ Hi, <%=current_user.first_name%>!
 
 <% end %>
 
-<!-- end sub nav -->
+<!-- End sub nav -->
 
- <div class="large-9 columns" role="content">
+<div class="large-9 columns" role="content">
     <div class="panel">
     <h5>Current Chore List</h5>
       <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
       <% end %>
     </div>
+
   <div class="panel">
     <h5>Completed Chores List</h5>
       <% @house.chores.complete.each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
-
       <% end %>
   </div>
-  <div class="panel">
-    <h5>Miscellaneous</h5>
-  </div>
+
+    <div class="panel">
+      <h5>Miscellaneous</h5>
+    </div>
 </div>
 
-  <!-- Sidebar -->
+  <!-- Comments sidebar -->
     <aside class="large-3 columns">
     <% if current_user %>
       <div class="panel">
@@ -86,4 +80,4 @@ Hi, <%=current_user.first_name%>!
 
     </aside>
 
-    <!-- End Sidebar -->
+    <!-- End comment sidebar -->

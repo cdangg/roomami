@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
 
     <title><%= content_for?(:title) ? yield(:title) : "roomami" %></title>
 
@@ -16,7 +16,7 @@
   <body>
 
 
-
+<!--Sign up front page -->
 
 
 <div class="logo-sign-in"><%= image_tag("Ra_logo.png", :size => "260x260") %>
@@ -26,26 +26,20 @@
 
   <center>
    <div class="row">
-      <div class="small-8">
+      <div class="small-4">
         <div class="row">
-          <div class="small-3 columns">
-            <%= label_tag :email %>
-          </div>
-          <div class="small-9 columns">
-            <%= text_field_tag :email, params[:email] %>
+          <div class="small-12 columns">
+            <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
           </div>
         </div>
       </div>
     </div>
 
      <div class="row">
-      <div class="small-8">
+      <div class="small-4">
         <div class="row">
-          <div class="small-3 columns">
-            <%= label_tag :password %>
-          </div>
-          <div class="small-9 columns">
-            <%= password_field_tag :password %>
+          <div class="small-12 columns">
+            <%= password_field_tag :password, nil, :placeholder => "Password" %>
           </div>
         </div>
       </div>
@@ -53,48 +47,22 @@
   </center>
 
 
-  <span class="actions"><%= submit_tag "Log in", :class => "button" %></span>  <a href="#" class="button" data-reveal-id="myModal" data-reveal>Sign Up</a>
-<% end %>
+  <span class="actions"><%= submit_tag "Log in", :class => "button radius" %></span>  <a href="#" class="button radius" data-reveal-id="myModal" data-reveal>Sign Up</a>
 
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Sign Up!</h2>
-  <p class="lead"><%= render "users/signup" %></p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+  <% end %>
 
+<!--End sign up front page -->
 
-<!-- <section id="homepage-hero">
-</section> -->
-<!--
-<ul class="example-orbit-content" data-orbit>
-  <li data-orbit-slide="headline-1">
-    <div>
-      <h2>Headline 1</h2>
-      <h3>Subheadline</h3>
-    </div>
-  </li>
-  <li data-orbit-slide="headline-2">
-    <div>
-      <h2>Headline 2</h2>
-      <h3>Subheadline</h3>
-    </div>
-  </li>
-  <li data-orbit-slide="headline-3">
-    <div>
-      <h2>Headline 3</h2>
-      <h3>Subheadline</h3>
-    </div>
-  </li>
-</ul> -->
+<!-- Front page modal -->
 
+  <div id="myModal" class="reveal-modal" data-reveal>
+    <h2>Sign Up!</h2>
+    <p class="lead"><%= render "users/signup" %></p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 
+<!-- End front page modal -->
 
-
-<!--     <div class="row">
-      <div class="large-12 column">
-        <%= image_tag("roommatepic.jpg") %>
-      </div>
-    </div> -->
 
 
     <script src="/js/vendor/jquery.js"></script>

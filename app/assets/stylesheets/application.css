@@ -25,7 +25,7 @@
 
 .container {
 	border: 1.5px solid #000;
-	width: 100%;
+	/*width: 100%;*/
 	min-height: 127px;
 }
 
@@ -44,5 +44,17 @@
 	font-size: 18px; 
 	margin: 0px; 
 	padding: 0px;
+}
 
+.plus-button > a {
+	color: inherit;
+}
+
+.owned-houses {
+	max-height: 127px;
+	overflow: auto;
+}
+
+.house-list {
+	width: 100%;
 }

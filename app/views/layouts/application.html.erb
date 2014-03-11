@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
 
     <title><%= content_for?(:title) ? yield(:title) : "roomami" %></title>
 
@@ -18,14 +19,13 @@
 <% if current_user %>
     <!-- Nav Bar -->
 
-
   <div class="sticky" data-options="sticky_on: large">
   <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
         <li class="name">
           <% if current_user %>
-          <h1><%= link_to "roomami", welcome_path(current_user) %></a></h1>
+          <h1 id="title-navbar-font"><%= link_to "roomami", welcome_path(current_user) %></h1>
           <% else %>
           <h1><%= link_to "roomami", root_url %></a></h1>
         </li>
@@ -44,28 +44,44 @@
           <li class="divider"></li>
           <li><%= link_to "Chores", chores_url %></li>
         </ul>
-        <span style="float: right; margin-right: 20px"><font color=white>Welcome, <%= current_user.first_name %>!
-        <%= link_to "Log out", logout_path %></font></span>
+        <span style="float: right; margin-right: 20px">
+          <font color="white">Welcome, <%= current_user.first_name %>! <%= link_to "Log out", logout_path %></font></span>
 
       <% end %>
 
-     <div id="flash">
-        <% if flash[:notice] %>
-          <p id="notice"><%= flash[:notice] %></p>
-        <% end %>
-        <% if flash[:alert] %>
-          <p id="alert"><%= flash[:alert] %></p>
-        <% end %>
+     </section>
+    </nav>
+  </div>
+
+<!-- End Nav -->
+
+    <br/>
+
+    <% if flash[:notice] %>
+      <div class="alert-box-margin">
+        <div data-alert class="alert-box success">
+            <%= flash[:notice] %>
+          <a href="#" class="close">&times;</a>
+        </div>
       </div>
+    <% end %>
 
-        </section>
-      </nav>
+
+     <% if flash[:alert] %>
+      <div class="alert-box-margin">
+        <div data-alert class="alert-box warning">
+            <%= flash[:alert] %>
+          <a href="#" class="close">&times;</a>
+        </div>
     </div>
+    <% end %>
 
-      <!-- End Nav
 
 
-      <!- Main Page Content and Sidebar -->
+
+
+      <!-- Main Page Content and Sidebar -->
+
       <div class="row">
 
         <!-- Main Blog Content -->

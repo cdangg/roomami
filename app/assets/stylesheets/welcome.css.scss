@@ -11,9 +11,9 @@
 //   }
 // }
 
-.main-container {
-  margin-top: 60px;
-}
+// .main-container {
+//   margin-top: 60px;
+// }
 
 .top-bar {
   background: rgba(42,62,89,0.9);
@@ -44,4 +44,16 @@
 
 .logo-sign-in {
   text-align: center;
+}
+
+#title-navbar-font a{
+  &:hover, &:link, &:visited{
+  color: #fff!important;
+  font-family: 'Megrim', cursive;
+  }
+}
+
+.alert-box-margin {
+  margin-left: 80px;
+  margin-right: 80px;
 }

@@ -46,6 +46,10 @@
 	padding: 0px;
 }
 
+.plus-button > a {
+	color: inherit;
+}
+
 .owned-houses {
 	max-height: 127px;
 	overflow: auto;

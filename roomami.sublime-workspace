@@ -3,17 +3,141 @@
 	{
 		"selected_items":
 		[
+			[
+				"curr",
+				"current_user"
+			],
+			[
+				"curren",
+				"current_step"
+			],
+			[
+				"user",
+				"user_params"
+			],
+			[
+				"current",
+				"current_user"
+			],
+			[
+				"chor",
+				"chores"
+			],
+			[
+				"cho",
+				"chores"
+			],
+			[
+				"chore",
+				"chore_params"
+			],
+			[
+				"lin",
+				"link_to"
+			],
+			[
+				"house",
+				"house_id"
+			],
+			[
+				"comme",
+				"commentable"
+			],
+			[
+				"name",
+				"first_name"
+			],
+			[
+				"chores",
+				"chores_path"
+			],
+			[
+				"created",
+				"created_houses"
+			],
+			[
+				"ta",
+				"tenancy_params"
+			],
+			[
+				"ten",
+				"tenancy"
+			],
+			[
+				"par",
+				"params"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"contents": "<% if flash.any? %>\n  <% flash.each do |type, msg| %>\n    <ul>\n      <li><%= msg %></li>\n    </ul>\n  <% end %>\n<% end %>",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/houses/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 2553,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/houses/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 727,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/controllers/users_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1014,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/users/_createprofile_step.html.erb",
+			"settings":
+			{
+				"buffer_size": 1155,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/models/user.rb",
+			"settings":
+			{
+				"buffer_size": 1113,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/users/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 213,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 147.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
 			[
 				"list",
 				"Package Control: List Packages"
@@ -27,7 +151,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -44,9 +168,62 @@
 	},
 	"file_history":
 	[
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/chores_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/house.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/users/_signup_step.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/chores/_form.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/users/new.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/chores/new.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/users/_signup.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/houses_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/users/show.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/welcome/show.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/user.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/welcome_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/comments_controller.rb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/users/create_user.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/layouts/application.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/comment.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/Gemfile",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140309205510_add_latitude_to_house.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/schema.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/Gemfile.lock",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/users_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/chores/index.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/tenancies/index.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/config/routes.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140309052146_add_column_to_comments.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140305173824_add_column_to_user.rb",
+		"/Users/celia/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/chores/show.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/houses/show_html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/chores/show.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/tenancies_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/chore.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140308033139_create_comments.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140308193608_add_house_to_comments.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/welcome.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/controllers/application_controller.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/houses/index.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140305032205_create_chores.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140308011931_add_column_to_chores.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/models/tenancy.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140307173213_add_index_to_tenancies.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140306235306_add_name_to_tenancies.rb",
+		"/Users/celia/Desktop/bitmaker/roomami/db/migrate/20140305045943_create_tenancies.rb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/tenancies/create.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/houses/edit.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/users/index.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/houses/show.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/tenancies/show.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/tenancies/new.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/tenancies/index.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/houses/_form.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/users/edit.html.erb",
+		"/Users/celia/Desktop/bitmaker/roomami/app/views/chores/edit.html.erb",
+		"/Users/celia/Desktop/Bitmaker/roomami/app/views/chores/poop.html.erb",
 		"/Users/celia/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/Users/celia/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/celia/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings"
+		"/Users/celia/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap"
 	],
 	"find":
 	{
@@ -64,6 +241,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"current_user"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -81,8 +259,198 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/houses/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 2553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1628,
+								1628
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/houses/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								719
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/controllers/users_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 46.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/users/_createprofile_step.html.erb",
+					"settings":
+					{
+						"buffer_size": 1155,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								215,
+								215
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/models/user.rb",
+					"settings":
+					{
+						"buffer_size": 1113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								977,
+								977
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 183.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/celia/Desktop/bitmaker/roomami/app/views/users/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -92,7 +460,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -127,6 +495,154 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"ch",
+				"app/controllers/chores_controller.rb"
+			],
+			[
+				"new",
+				"app/views/users/new.html.erb"
+			],
+			[
+				"sig",
+				"app/views/users/_signup_step.html.erb"
+			],
+			[
+				"form",
+				"app/views/chores/_form.html.erb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"app",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"comm",
+				"app/controllers/comments_controller.rb"
+			],
+			[
+				"we",
+				"app/controllers/welcome_controller.rb"
+			],
+			[
+				"wel",
+				"app/views/welcome/show.html.erb"
+			],
+			[
+				"hou",
+				"app/models/house.rb"
+			],
+			[
+				"index",
+				"app/views/houses/index.html.erb"
+			],
+			[
+				"show",
+				"app/views/welcome/show.html.erb"
+			],
+			[
+				"usersho",
+				"app/views/users/show.html.erb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"house",
+				"app/controllers/houses_controller.rb"
+			],
+			[
+				"",
+				"Gemfile.lock"
+			],
+			[
+				"in",
+				"app/views/houses/index.html.erb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"welcome",
+				"app/controllers/welcome_controller.rb"
+			],
+			[
+				"cho",
+				"app/controllers/chores_controller.rb"
+			],
+			[
+				"chores/",
+				"app/views/chores/index.html.erb"
+			],
+			[
+				"welcomesh",
+				"app/views/welcome/show.html.erb"
+			],
+			[
+				"application",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"chore/",
+				"app/views/chores/index.html.erb"
+			],
+			[
+				"sch",
+				"db/schema.rb"
+			],
+			[
+				"add",
+				"db/migrate/20140309052146_add_column_to_comments.rb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"for",
+				"app/views/chores/_form.html.erb"
+			],
+			[
+				"com",
+				"app/models/comment.rb"
+			],
+			[
+				"addhou",
+				"db/migrate/20140308193608_add_house_to_comments.rb"
+			],
+			[
+				"chores",
+				"app/controllers/chores_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"sc",
+				"db/schema.rb"
+			],
+			[
+				"te",
+				"app/models/tenancy.rb"
+			],
+			[
+				"apht",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"chore.rb",
+				"app/models/chore.rb"
+			]
 		],
 		"width": 0.0
 	},
@@ -138,10 +654,10 @@
 		],
 		"width": 0.0
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_visible": false,
+	"side_bar_width": 240.0,
 	"status_bar_visible": true
 }

@@ -1,15 +1,32 @@
 class UsersController < ApplicationController
 
-  def new
-  	@user = User.new
-  end
-
   def edit
     @user = User.find(params[:id])
   end
 
+  def new
+    @user = current_user || User.new
+  end
+
   def create
     @user = User.new(user_params)
+
+    # @user.current_step = session[:user_step]
+    # if params[:back_button]
+    #   @user.previous_step
+    # elsif @user.last_step?
+    #   @user.save
+    # else
+    #   @user.next_step
+    # end
+    # session[:user_step] = @user.current_step
+    # if @user.new_record?
+
+    #   render "new"
+    # else
+    #   redirect_to houses_path(current_user)
+    # end
+
     if @user.save
       auto_login(@user)
       flash[:success] = "Welcome to roomami"
@@ -17,12 +34,17 @@ class UsersController < ApplicationController
   	else
   		render :new
   	end
+
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to houses_path(current_user)
+      if @user.houses.empty?
+        redirect_to houses_path(current_user)
+      else
+        redirect_to welcome_path(current_user)
+      end
     else
       render :edit
     end
@@ -31,6 +53,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
 
   private
 

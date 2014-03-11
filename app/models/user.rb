@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_writer :current_step
+
   has_many :tenancies
   has_many :houses, through: :tenancies
   has_many :roommates, through: :houses, source: :tenants
@@ -13,6 +15,30 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
   validates :phone_number, numericality: true, length: { is: 10 }, on: :update
+
+  def current_step
+    @current_step || steps.first
+  end
+
+  def steps
+    %w[signup createprofile]
+  end
+
+  def next_step
+    self.current_step = steps[steps.index(current_step)+1]
+  end
+
+  def previous_step
+    self.current_step = steps[steps.index(current_step)-1]
+  end
+
+  def first_step?
+    current_step == steps.first
+  end
+
+  def last_step?
+    current_step == steps.last
+  end
 
   def lived_in
     houses.map(&:name).join(', ')

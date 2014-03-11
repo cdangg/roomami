@@ -1,5 +1,6 @@
 class ChoresController < ApplicationController
   before_filter :ensure_logged_in
+  before_filter :contain_house?
 
   def index
     if params[:house_id]

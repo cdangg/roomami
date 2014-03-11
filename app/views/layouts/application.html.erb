@@ -14,19 +14,26 @@
 
   <body>
 
+
+<% if current_user %>
     <!-- Nav Bar -->
+
 
   <div class="sticky" data-options="sticky_on: large">
   <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
         <li class="name">
+          <% if current_user %>
+          <h1><%= link_to "roomami", welcome_path(current_user) %></a></h1>
+          <% else %>
           <h1><%= link_to "roomami", root_url %></a></h1>
         </li>
       </ul>
+      <% end %>
       <section class="top-bar-section">
 
-        <% if current_user %>
+
         <ul class="center">
           <li class="divider"></li>
           <li><%= link_to "Home", welcome_path(current_user) %></li>
@@ -40,9 +47,6 @@
         <span style="float: right; margin-right: 20px"><font color=white>Welcome, <%= current_user.first_name %>!
         <%= link_to "Log out", logout_path %></font></span>
 
-      <% else %>
-        <span style="float: right"><%= link_to "Sign up", signup_path %> <font color= "#F2F2F2">or</font>
-        <%= link_to "Log in", login_path %>.</span>
       <% end %>
 
      <div id="flash">
@@ -61,21 +65,12 @@
       <!-- End Nav
 
 
-      <!-- Main Page Content and Sidebar -->
+      <!- Main Page Content and Sidebar -->
       <div class="row">
 
         <!-- Main Blog Content -->
         <div class="main-container">
           <div class="large-12 columns" role="content">
-
-             <div id="myModal" class="reveal-modal" data-reveal>
-                <h2>Awesome. I have it.</h2>
-                <p class="lead">Your couch.  It is mine.</p>
-                <p>Hi Celia!<br>Hi Andrew!<br>Hi Janet!</p>
-                <a class="close-reveal-modal">&#215;</a>
-            </div>
-
-            <a href="#" data-reveal-id="myModal" data-reveal>Click Me For A Modal</a>
 
             <%= yield %>
 
@@ -99,22 +94,25 @@
             </div>
             <div class="large-6 columns">
               <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
               </ul>
             </div>
           </div>
         </div>
       </footer>
+
+
+
+
       <%= params %>
 
 
     <script>
       $(document).foundation();
     </script>
-
 
 
 

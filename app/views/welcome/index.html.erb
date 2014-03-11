@@ -26,26 +26,20 @@
 
   <center>
    <div class="row">
-      <div class="small-8">
+      <div class="small-4">
         <div class="row">
-          <div class="small-3 columns">
-            <%= label_tag :email %>
-          </div>
-          <div class="small-9 columns">
-            <%= text_field_tag :email, params[:email] %>
+          <div class="small-12 columns">
+            <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
           </div>
         </div>
       </div>
     </div>
 
      <div class="row">
-      <div class="small-8">
+      <div class="small-4">
         <div class="row">
-          <div class="small-3 columns">
-            <%= label_tag :password %>
-          </div>
-          <div class="small-9 columns">
-            <%= password_field_tag :password %>
+          <div class="small-12 columns">
+            <%= password_field_tag :password, nil, :placeholder => "Password" %>
           </div>
         </div>
       </div>
@@ -53,7 +47,7 @@
   </center>
 
 
-  <span class="actions"><%= submit_tag "Log in", :class => "button" %></span>  <a href="#" class="button" data-reveal-id="myModal" data-reveal>Sign Up</a>
+  <span class="actions"><%= submit_tag "Log in", :class => "button radius" %></span>  <a href="#" class="button radius" data-reveal-id="myModal" data-reveal>Sign Up</a>
 <% end %>
 
 <div id="myModal" class="reveal-modal" data-reveal>

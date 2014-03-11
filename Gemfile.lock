@@ -97,6 +97,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     sass (3.3.0)
       rake
     sass-rails (4.0.1)
@@ -145,6 +146,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.3)
+  rmagick
   sass-rails (~> 4.0.0)
   sdoc
   sorcery

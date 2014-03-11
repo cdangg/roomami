@@ -4,6 +4,7 @@
 <div><%= @user.first_name %> <%= @user.last_name %></div>
 <div><%= @user.email %></div>
 <div><%= @user.phone_number %></div><br />
+<div><%= image_tag @user.avatar_url.to_s if @user.avatar? %></div>
 <div>Hometown: <%= @user.hometown %></div>
 <div>Biography: <%= @user.bio %></div>
 <div>Interests: <%= @user.interests %></div>

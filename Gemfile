@@ -35,6 +35,7 @@ end
 gem 'sorcery'
 gem 'foundation-rails'
 gem 'geocoder'
+gem 'rmagick'
 gem 'carrierwave'
 
 # Use ActiveModel has_secure_password

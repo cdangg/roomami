@@ -20,7 +20,7 @@
         <%= house.address %><br>
         <%= house.city %><br>
         <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-        <strong>Bathrooms: </strong><%= house.bedrooms %><br>
+        <strong>Bathrooms: </strong><%= house.bathrooms %><br>
         <strong>Description: </strong><%= house.description %><br>
         <strong>Roommates: </strong>
         <% house.tenants.each do |tenant| %>
@@ -53,8 +53,8 @@
           <%= house.address %><br>
           <%= house.city %><br>
           <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-          <strong>Bathrooms: </strong><%= house.bedrooms %><br>
-        </div>      
+          <strong>Bathrooms: </strong><%= house.bathrooms %><br>
+        </div>
       </div>
     </li>
   <% end %>

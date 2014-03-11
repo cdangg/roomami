@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311035914) do
+ActiveRecord::Schema.define(version: 20140311183303) do
 
   create_table "chores", force: true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140311035914) do
     t.integer  "user_id"
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "image"
   end
 
   create_table "tenancies", force: true do |t|

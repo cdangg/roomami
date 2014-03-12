@@ -19,7 +19,6 @@
 
   <body>
 
-
 <% if current_user %>
     <!-- Nav Bar -->
 
@@ -42,7 +41,11 @@
           <li class="divider"></li>
           <li><%= link_to "Home", welcome_path(current_user) %></li>
           <li class="divider"></li>
-          <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li class="has-dropdown"><%= link_to "My Profile", user_path(current_user) %>
+            <ul class="dropdown">
+              <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            </ul>
+          </li>
           <li class="divider"></li>
           <li><%= link_to "Houses", houses_url %></li>
           <li class="divider"></li>
@@ -56,6 +59,7 @@
      </section>
     </nav>
   </div>
+
 
 <!-- End Nav -->
 

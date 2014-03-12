@@ -1,0 +1,30 @@
+<%= form_for([@house, @expense]) do |f| %>
+  <% if @expense.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @expense.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :house_id, value: params[:house_id] %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label "Split between" %>
+    <%= f.text_field :roommates %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create expense", class: "tiny button radius"%>
+  </div>
+<% end %>

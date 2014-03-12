@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311183303) do
+ActiveRecord::Schema.define(version: 20140312180725) do
 
   create_table "chores", force: true do |t|
     t.string   "name"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20140311183303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "house_id"
+  end
+
+  create_table "expenses", force: true do |t|
+    t.string   "description"
+    t.integer  "house_id"
+    t.integer  "user_id"
+    t.boolean  "status",      default: false
+    t.float    "amount"
+    t.integer  "roommates"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "houses", force: true do |t|

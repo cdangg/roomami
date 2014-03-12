@@ -7,7 +7,7 @@
 <div>Hometown: <%= @user.hometown %></div>
 <div>Biography: <%= @user.bio %></div>
 <div>Interests: <%= @user.interests %></div>
-<div>Houses I'm admin to:
+<div>Houses I've created:
   <% current_user.created_houses.each do |house| %>
     <%= link_to house.name, house_path(house) %>,
   <% end %>

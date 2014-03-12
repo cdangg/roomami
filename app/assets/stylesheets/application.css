@@ -30,10 +30,15 @@
 	float: left;
 }
 
-.container {
+.container, .container-small {
 	border: 1.5px solid #000;
 	/*width: 100%;*/
 	min-height: 127px;
+	margin-bottom: 25px;
+}
+
+.container-small{
+	margin-bottom: 0px;
 }
 
 .add-house {
@@ -42,7 +47,7 @@
 
 }
 
-.plus-button {
+.plus-button, .plus-button-small {
 	color: white;
 	height: 30px;
 	width: 30px;
@@ -50,9 +55,12 @@
 	font-size: 18px;
 	margin: 0px;
 	padding: 0px;
+}
+
+.plus-button-small{
 	position: absolute;
-	top: 0;
-	right: 0;
+	right: 0px;
+	z-index: 2000;
 }
 
 .plus-button > a {

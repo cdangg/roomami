@@ -41,12 +41,12 @@
 <ul class="small-block-grid medium-block-grid-2">
   <% @current_user.houses.each do |house| %>
     <li>
-      <div class="container">
+      <div class="container-small">
         <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
       <div class="house-list">
         <div class="add-house">
-          <button class="plus-button">
+          <button class="plus-button-small">
             <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
           </button>
           </div>

@@ -21,6 +21,9 @@ Roomami::Application.routes.draw do
       resources :chores do
         patch 'complete_task', on: :collection
       end
+      resources :shoppinglists do
+        patch 'complete_task', on: :collection
+      end
       resources :expenses do
         patch 'complete_task', on: :collection
       end
@@ -29,6 +32,7 @@ Roomami::Application.routes.draw do
 
     resources :expenses, only: :index
     resources :chores, only: :index
+    resources :shoppinglists, only: :index
     resources :users
     resources :sessions
 

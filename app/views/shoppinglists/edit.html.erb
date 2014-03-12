@@ -1,0 +1,7 @@
+<% if @shoppinglist.user == current_user %>
+<h1>Edit List</h1>
+<%= render 'form' %>
+
+<% else %>
+  <div style="padding-top: 26px; height: 100px; margin-top: 300px; border: 2px solid black; text-align: center; font-size: 40px; color: red; ">FORBIDDEN ACCESS</div>
+<% end %>

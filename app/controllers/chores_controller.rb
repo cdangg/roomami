@@ -24,7 +24,7 @@ class ChoresController < ApplicationController
 
     if @chore.save
       respond_to do |format|
-        format.html { redirect_to chores_path, :notice => "Chore added!" }
+        format.html { redirect_to house_chores_path, :notice => "Chore added!" }
         format.json { render json: { chore_name: @chore.name, user_name: current_user.first_name + " " + current_user.last_name, created_at: @chore.created_at, house_id: @house.id, chore_id: @chore.id } }
       end
     else
@@ -36,7 +36,7 @@ class ChoresController < ApplicationController
     @chore = Chore.find(params[:id])
 
     if @chore.update_attributes(chore_params)
-      redirect_to chores_path, :notice => "Chore updated"
+      redirect_to house_chores_path, :notice => "Chore updated"
     else
       render :edit, :alert => "Invalid request"
     end
@@ -48,7 +48,7 @@ class ChoresController < ApplicationController
     @chore = Chore.find(params[:chore_id])
     @chore.status = true
     @chore.save
-    redirect_to chores_path
+    redirect_to house_chores_path
   end
 
   def edit
@@ -58,7 +58,7 @@ class ChoresController < ApplicationController
   def destroy
     @chore = Chore.find(params[:id])
     @chore.destroy
-    redirect_to chores_path
+    redirect_to house_chores_path
   end
 
   private

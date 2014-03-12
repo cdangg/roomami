@@ -1,5 +1,6 @@
 class House < ActiveRecord::Base
   has_many :chores
+  has_many :expenses
   has_many :tenancies
   has_many :tenants, through: :tenancies, source: 'user'
   has_many :comments

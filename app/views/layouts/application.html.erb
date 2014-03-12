@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= favicon_link_tag 'favicon.ico' %>
+   <link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
+
+
 
     <title><%= content_for?(:title) ? yield(:title) : "oomami" %></title>
 
@@ -15,7 +18,6 @@
   </head>
 
   <body>
-
 
 <% if current_user %>
     <!-- Nav Bar -->
@@ -39,11 +41,17 @@
           <li class="divider"></li>
           <li><%= link_to "Home", welcome_path(current_user) %></li>
           <li class="divider"></li>
-          <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li class="has-dropdown"><%= link_to "My Profile", user_path(current_user) %>
+            <ul class="dropdown">
+              <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            </ul>
+          </li>
           <li class="divider"></li>
           <li><%= link_to "Houses", houses_url %></li>
           <li class="divider"></li>
           <li><%= link_to "Chores", chores_url %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Expenses", expenses_url %></li>
         </ul>
         <span style="float: right; margin-right: 20px">
           <font color="white">Welcome, <%= current_user.first_name %>! <%= link_to "Log out", logout_path %></font></span>
@@ -53,6 +61,7 @@
      </section>
     </nav>
   </div>
+
 
 <!-- End Nav -->
 
@@ -131,7 +140,6 @@
     <script>
       $(document).foundation();
     </script>
-
 
 
 

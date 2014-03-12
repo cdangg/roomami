@@ -57,3 +57,105 @@
   margin-left: 80px;
   margin-right: 80px;
 }
+
+.chat-button {
+  background-color: #1e9081;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: none;
+  color:#ffffff;
+  font-size:12px;
+  font-family: arial;
+  padding:9px 24px;
+  text-decoration:none;
+}
+
+.chat-button:hover {
+  background-color: #008581;
+}
+
+.chat-button:active {
+  position:relative;
+  top:1px;
+}
+
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }
+
+
+// .panel{
+//   border: solid 8px;
+//   border-color: #25B4A1;
+// }
+
+//   placeholder for css/js animation
+
+
+
+// .alert-box-margin {
+//   margin-left: 80px;
+//   margin-right: 80px;
+// }
+
+// .animated {
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
+
+// .bounceOutLeft {
+//   -webkit-animation-name: bounceOutLeft;
+//   animation-name: bounceOutLeft;
+// }
+
+// @-webkit-keyframes bounceOutLeft {
+//   0% {
+//     -webkit-transform: translateX(0);
+//     transform: translateX(0);
+//   }
+
+//   20% {
+//     opacity: 1;
+//     -webkit-transform: translateX(20px);
+//     transform: translateX(20px);
+//   }
+
+//   100% {
+//     opacity: 0;
+//     -webkit-transform: translateX(-2000px);
+//     transform: translateX(-2000px);
+//   }
+// }
+
+// @keyframes bounceOutLeft {
+//   0% {
+//     -webkit-transform: translateX(0);
+//     -ms-transform: translateX(0);
+//     transform: translateX(0);
+//   }
+
+//   20% {
+//     opacity: 1;
+//     -webkit-transform: translateX(20px);
+//     -ms-transform: translateX(20px);
+//     transform: translateX(20px);
+//   }
+
+//   100% {
+//     opacity: 0;
+//     -webkit-transform: translateX(-2000px);
+//     -ms-transform: translateX(-2000px);
+//     transform: translateX(-2000px);
+//   }
+// }
+
+

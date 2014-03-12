@@ -1,27 +1,32 @@
 class ChoresController < ApplicationController
   before_filter :ensure_logged_in
   before_filter :contain_house?
+  before_filter :load_house, except: [:index, :destroy]
 
   def index
+
     if params[:house_id]
       @house = House.find(params[:house_id])
     else
       @house = current_user.houses.first
     end
+    @chore = @house.chores.new()
     @chores = @house.chores.pending
   end
 
   def new
-    @house = House.find(params[:house_id])
     @chore = @house.chores.new()
   end
 
   def create
-    @chore = Chore.new(chore_params)
+    @chore = @house.chores.build(chore_params)
     @chore.user_id = current_user.id
 
     if @chore.save
-      redirect_to chores_path, :notice => "Chore added!"
+      respond_to do |format|
+        format.html { redirect_to chores_path, :notice => "Chore added!" }
+        format.json { render json: { chore_name: @chore.name, user_name: current_user.first_name + " " + current_user.last_name, created_at: @chore.created_at, house_id: @house.id, chore_id: @chore.id } }
+      end
     else
       render :new, :alert => "Can't add"
     end
@@ -40,7 +45,6 @@ class ChoresController < ApplicationController
   end
 
   def complete_task
-    @house = House.find(params[:house_id])
     @chore = Chore.find(params[:chore_id])
     @chore.status = true
     @chore.save
@@ -49,7 +53,6 @@ class ChoresController < ApplicationController
 
   def edit
     @chore = Chore.find(params[:id])
-    @house = House.find(params[:house_id])
   end
 
   def destroy
@@ -59,6 +62,10 @@ class ChoresController < ApplicationController
   end
 
   private
+  def load_house
+    @house = House.find(params[:house_id])
+  end
+
   def chore_params
     params.require(:chore).permit(:house_id, :name, :status)
   end

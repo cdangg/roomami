@@ -53,7 +53,7 @@ $panel-border-style: none;
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Metrophobic", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -779,11 +779,12 @@ $alert-border-style: none;
 // We use these to control the background and border styles
 // $panel-bg: scale-color(#fff, $lightness: -5%);
 // $panel-border-style: solid;
-// $panel-border-size: 1px;
+// $panel-border-size: 10px;
 
 // We use this % to control how much we darken things on hover
 // $panel-function-factor: -11%;
 // $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor);
+
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);

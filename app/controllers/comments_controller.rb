@@ -20,10 +20,14 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
 
-    if @comment.save
-      redirect_to welcome_path(current_user, {house_id: @house.id})
-    else
-      redirect_to :action => :show, notice: "Comment can't be blank"
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to welcome_path(current_user, {house_id: @house.id}) }
+        format.js {}
+      else
+        format.html { redirect_to welcome_path(current_user), notice: "Comment can't be blank" }
+        format.js {}
+      end
     end
   end
 

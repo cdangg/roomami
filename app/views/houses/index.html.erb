@@ -40,20 +40,30 @@
 
 
 <ul class="small-block-grid medium-block-grid-2">
-  <% @current_user.houses.each do |house| %>
+
+  <% @current_user.tenancies.each do |t| %>
     <li>
       <div class="container-small">
-        <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
-      <div class="house-list">
-        <div class="house-info">
-          <%= link_to house.name, house_path(house.id) %><br>
-          <%= house.address %><br>
-          <%= house.city %><br>
-          <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-          <strong>Bathrooms: </strong><%= house.bathrooms %><br>
-        </div>
+        <%= image_tag t.house.image_url(:thumb), :class => "house-image" %>
+
+        <div class="house-list">
+          <div class="add-house">
+              <button class="plus-button-small">
+                <%= link_to '-', tenancy_path(t), method: :delete %>
+              </button>
+          </div>
+          <div class="house-info">
+            <%= link_to t.house.name, house_path(t.house) %><br>
+            <%= t.house.address %><br>
+            <%= t.house.city %><br>
+            <strong>Bedrooms: </strong><%= t.house.bedrooms %><br>
+            <strong>Bathrooms: </strong><%= t.house.bathrooms %><br>
+          </div>
         </div>
       </div>
     </li>
+  <% end %>
+
+  <% @current_user.houses.each do |house| %>
   <% end %>
 </ul>

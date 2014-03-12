@@ -11,7 +11,7 @@
   <% end %>
   <div class="field">
     <%= f.label 'Add a picture for your house' %>
-    <%= image_tag @house.image_url(:thumb) if @house.image? %><br />
+    <%= image_tag @house.image_url(:thumb) %><br />
     <%= f.file_field :image %>
   </div>
   <div class="field">

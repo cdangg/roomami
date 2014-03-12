@@ -34,7 +34,7 @@ Hi, <%=current_user.first_name%>!
 
   <div class="panel">
     <h5>Completed Chores List</h5>
-      <% @house.chores.complete.each do |chore| %>
+      <% @house.chores.complete.limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
       <% end %>
   </div>
@@ -54,7 +54,7 @@ Hi, <%=current_user.first_name%>!
           <%= comment.content %><br/><br/>
         <% end %>
 
-        <%= form_for(@comment) do |f| %>
+        <%= form_for([@house, @comment]) do |f| %>
           <% if @comment.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this review from being saved</h2>
@@ -75,6 +75,9 @@ Hi, <%=current_user.first_name%>!
            </div>
           <% end %>
         <% end %>
+
+      </div>
+
 
     </aside>
 

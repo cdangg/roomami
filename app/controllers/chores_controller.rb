@@ -40,7 +40,8 @@ class ChoresController < ApplicationController
   end
 
   def complete_task
-    @chore = Chore.find(params[:id])
+    @house = House.find(params[:house_id])
+    @chore = Chore.find(params[:chore_id])
     @chore.status = true
     @chore.save
     redirect_to chores_path
@@ -48,6 +49,7 @@ class ChoresController < ApplicationController
 
   def edit
     @chore = Chore.find(params[:id])
+    @house = House.find(params[:house_id])
   end
 
   def destroy

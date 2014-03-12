@@ -9,27 +9,26 @@
 <% if @houses.nil? %>
 <% else %>
   <% @houses.each do |house| %>
-    <div class="container">
-      <%= image_tag house.image_url(:thumb), :class =>"house-image" if house.image? %>
-      <div class="add-house">
-        <button class="plus-button">
-          <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
+        <div class="container">
+          <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
+          <div class="add-house">
+            <button class="plus-button">
+              <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
+            </div>
+          <div class="house-info">
+            <%= link_to house.name, house_path(house.id) %><br>
+            <%= house.address %><br>
+            <%= house.city %><br>
+            <strong>Bedrooms: </strong><%= house.bedrooms %><br>
+            <strong>Bathrooms: </strong><%= house.bathrooms %><br>
+            <strong>Description: </strong><%= house.description %><br>
+            <strong>Roommates: </strong>
+            <% house.tenants.each do |tenant| %>
+              <%= tenant.first_name %> <%= tenant.last_name %>,
+            <% end %>
+          </div>
         </div>
-      <div class="house-info">
-        <%= link_to house.name, house_path(house.id) %><br>
-        <%= house.address %><br>
-        <%= house.city %><br>
-        <strong>Bedrooms: </strong><%= house.bedrooms %><br>
-        <strong>Bathrooms: </strong><%= house.bathrooms %><br>
-        <strong>Description: </strong><%= house.description %><br>
-        <strong>Roommates: </strong>
-        <% house.tenants.each do |tenant| %>
-          <%= tenant.first_name %> <%= tenant.last_name %>,
-        <% end %>
-
-      </div>
-    </div>
-  <% end %>
+      <% end %>
  <% end %>
 
 <div class="row">
@@ -43,9 +42,9 @@
   <% @current_user.houses.each do |house| %>
     <li>
       <div class="container">
-        <%= image_tag house.image_url(:thumb), :class =>"house-image" if house.image? %>
-      <li class="house-list">
-      <div class="container owned-houses">
+        <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
+      <div class="house-list">
         <div class="add-house">
           <button class="plus-button">
             <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
@@ -57,6 +56,8 @@
           <%= house.city %><br>
           <strong>Bedrooms: </strong><%= house.bedrooms %><br>
           <strong>Bathrooms: </strong><%= house.bathrooms %><br>
+        </div>
+        </div>
       </div>
     </li>
   <% end %>

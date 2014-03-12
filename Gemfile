@@ -37,6 +37,7 @@ gem 'foundation-rails'
 gem 'geocoder'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'foundation-icons-sass-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -44,8 +44,9 @@ Hi, <%=current_user.first_name%>!
     </div>
 </div>
 
-  <!-- Comments sidebar -->
+  <!-- Chats sidebar -->
     <aside class="large-3 columns">
+      <div class="panel">
     <% if current_user %>
       <div class="comments-panel">
         <h5 class="title">Say Something!</h5>
@@ -67,23 +68,29 @@ Hi, <%=current_user.first_name%>!
               </ul>
             </div>
           <% end %>
-          
+
           <br/>
           <%= f.hidden_field :house_id, value: @house.id %>
            <div class="field">
             <%= f.text_area :content %>
            </div>
            <div class="actions">
-            <%= f.submit "Send Message", class: "chat-button" %>
+
+            <%= f.submit "Arg..Hear ye, Hear ye!", class: "chat-button" %>
+
            </div>
         <% end %>
+
+      </div>
+      <br>
+     <a href="#"><font color="white">Read chat history...</font></a>
+    </div>
+  </aside>
+
 
 
       </div>
 
-    <% end %>
-    </aside>
-
-    <!-- End comment sidebar -->
+    <!-- End chats sidebar -->
 
 

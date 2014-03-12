@@ -1,6 +1,6 @@
 <h2 class="subheader" style="margin-bottom: 0px">Houses</h2>
 <%= link_to "Add House", new_house_path %><br><br>
-<p>Find a house: </p>
+<p>Find a house </p>
 <%= form_tag houses_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search", :class => "tiny button radius" %>
@@ -12,6 +12,7 @@
         <div class="container">
           <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
           <div class="add-house">
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
             <button class="plus-button">
               <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
             </div>
@@ -41,15 +42,9 @@
 <ul class="small-block-grid medium-block-grid-2">
   <% @current_user.houses.each do |house| %>
     <li>
-      <div class="container">
+      <div class="container-small">
         <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
       <div class="house-list">
-        <div class="add-house">
-          <button class="plus-button">
-            <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %>
-          </button>
-          </div>
         <div class="house-info">
           <%= link_to house.name, house_path(house.id) %><br>
           <%= house.address %><br>

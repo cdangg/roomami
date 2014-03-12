@@ -1,5 +1,4 @@
-<h1 style="margin-bottom: 0px"><h2 class="subheader">My Profile</h2></h1>
-<span> <%= link_to "Edit Profile", edit_user_path(current_user) %></span><br><br>
+<h2 class="subheader">My Profile  <%= link_to "", edit_user_path(current_user), :class => "fi-clipboard-pencil size-28"%></h2>
 
 <div><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></div>
 <div><%= @user.first_name %> <%= @user.last_name %></div>
@@ -8,7 +7,7 @@
 <div>Hometown: <%= @user.hometown %></div>
 <div>Biography: <%= @user.bio %></div>
 <div>Interests: <%= @user.interests %></div>
-<div>Houses I'm admin to:
+<div>Houses I've created:
   <% current_user.created_houses.each do |house| %>
     <%= link_to house.name, house_path(house) %>,
   <% end %>

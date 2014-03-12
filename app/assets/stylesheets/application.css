@@ -26,6 +26,7 @@
 .house-image {
 	height: 125px;
 	width: 150px;
+	margin-right: 10px;
 	display: block;
 	float: left;
 }
@@ -46,7 +47,7 @@
 	display: inline-block;
 }
 
-.plus-button, .plus-button-small {
+.plus-button-small, .plus-button {
 	color: white;
 	height: 30px;
 	width: 30px;
@@ -56,10 +57,10 @@
 	padding: 0px;
 }
 
-.plus-button-small{
+.plus-button{
 	position: absolute;
-	right: 0px;
-	z-index: 2000;
+	right: 16px;
+
 }
 
 .plus-button > a, .plus-button-small > a {

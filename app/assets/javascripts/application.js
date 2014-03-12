@@ -13,25 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
 
 $(function(){ jQuery(document).foundation(); });
-
-$(document).on('page:change', function() {
-  var userHouseList = $('#user-house-list');
-
-  if (userHouseList.length) {
-    var currentlyViewing = userHouseList.data('activeId');
-    var houseLink = userHouseList.children('dd').children('a.house-tab');
-    houseLink.each(function() {
-      if ($(this).data('id') === currentlyViewing) {
-        $(this).addClass('active')
-      }
-    })
-  }
-});
-
 
 // $( document ).click(function() {
 //   $( "#toggle-chore" ).toggle( "drop" );
@@ -46,6 +30,23 @@ $(document).on('page:change', function() {
 
 
 $(document).ready(function(){
+
+  (function() {
+    var userHouseList = $('#user-house-list');
+
+    if (userHouseList.length) {
+      var currentlyViewing = userHouseList.data('activeId');
+      var houseLink = userHouseList.children('dd').children('a.house-tab');
+      houseLink.each(function() {
+        if ($(this).data('id') === currentlyViewing) {
+          $(this).addClass('active')
+        }
+      })
+    }
+  })();
+
+// new comment submission
+
   $("#new_comment").on("submit", function(e) {
     e.preventDefault();
 
@@ -63,6 +64,8 @@ $(document).ready(function(){
       }
     });
   });
+
+// new chore submission
 
   $('#new_chore_link').on("click", function(e){
     e.preventDefault();

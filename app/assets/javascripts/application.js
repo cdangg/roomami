@@ -19,11 +19,8 @@
 $(function(){ jQuery(document).foundation(); });
 
 $(document).on('page:change', function() {
-
-
-  // dl -> id="user-house-list", data-active-id= ??
-  // a (link) -> class: "house-tab", data: { id: ?? }
   var userHouseList = $('#user-house-list');
+
   if (userHouseList.length) {
     var currentlyViewing = userHouseList.data('activeId');
     var houseLink = userHouseList.children('dd').children('a.house-tab');
@@ -65,9 +62,32 @@ $(document).ready(function(){
         $(".comments-panel").text(data.comment);
       }
     });
+  });
 
+  $('#new_chore_link').on("click", function(e){
+    e.preventDefault();
+
+    $('#chore_form').show();
+    $(this).hide();
+  });
+
+  $("#new_chore").on("submit", function(a) {
+    a.preventDefault();
+
+    var url = $(this).attr("action");
+    console.log(url);
+
+    $.ajax({
+      url: url,
+      data: $(this).serialize(),
+      dataType: "json",
+      type: "POST",
+      success: function(data) {
+        console.log(data);
+        var chore = ich.chore(data);
+        $(".incomplete_chore_list").append(chore);
+      }
+    });
+    
   });
 });
-
-
-

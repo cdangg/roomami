@@ -11,21 +11,49 @@
 <% end %>
 <!-- end sub nav -->
 
-<%= link_to "Add Chore", new_house_chore_path(@house) %><br><br>
+<%= link_to "Add Chore", new_house_chore_path(@house), id: "new_chore_link" %>
 
-<% if current_user.houses %>
-  <% @chores.each do |chore| %>
-    <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %> | <%= link_to "I finished it!", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> </div>
-    <span><strong>Chore: </strong><%= chore.name %></span>
-       <% if chore.user.id == current_user.id %>
-        <span> | <%= link_to "Edit Chore", edit_house_chore_path(chore.house.id, chore.id) %></span>
+
+<div id="chore_form">
+  <%= render "form" %>
+</div>
+
+<div class="incomplete_chore_list">
+  <% if current_user.houses %>
+    <% @chores.each do |chore| %>
+      <div>
+        <strong>User: </strong>
+        <%= chore.user.first_name %> <%= chore.user.last_name %> | 
+        <%= link_to "I finished it!", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> 
+      </div>
+      <span>
+        <strong>Chore: </strong>
+        <%= chore.name %>
+      </span>
+      <% if chore.user.id == current_user.id %>
+        <span> | 
+          <%= link_to "Edit Chore", edit_house_chore_path(chore.house.id, chore.id) %>
+        </span>
       <% end %>
-    <div><strong>Last updated: </strong><%= chore.updated_at %></div><br>
+      <div>
+        <strong>Last updated: </strong><%= chore.updated_at %>
+      </div>
+      <br>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
-
-
-
+<!-- template for new incomplete chore -->
+<script id="chore" type="text/html">
+  <div>
+    <strong>User: </strong>{{ user_name }} <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a>
+  </div>
+  <span><strong>Chore: </strong> {{ chore_name }}</span>
+  <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
+  <div>
+    <strong>Last updated: </strong>
+    {{ created_at }}
+  </div>
+</script>
 
 

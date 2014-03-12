@@ -25,14 +25,14 @@ Hi, <%=current_user.first_name%>!
 <!-- End sub nav -->
 
 <div class="large-9 columns" role="content">
-    <div class="panel">
+    <div class="panel" id="incomplete_chores">
     <h5>Current Chore List</h5>
       <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
       <% end %>
     </div>
 
-  <div class="panel">
+  <div class="panel" id="complete_chores">
     <h5>Completed Chores List</h5>
       <% @house.chores.complete.limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
@@ -56,7 +56,7 @@ Hi, <%=current_user.first_name%>!
         </div>
         <% end %>
 
-        <%= form_for([@house, @comment]) do |f| %>
+        <%= form_for [@house, @comment], remote: true do |f| %>
           <% if @comment.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this review from being saved</h2>
@@ -67,8 +67,6 @@ Hi, <%=current_user.first_name%>!
               </ul>
             </div>
           <% end %>
-
-        <%= form_for @comment, remote: true do |f| %>
           
           <br/>
           <%= f.hidden_field :house_id, value: @house.id %>
@@ -76,14 +74,14 @@ Hi, <%=current_user.first_name%>!
             <%= f.text_area :content %>
            </div>
            <div class="actions">
-            <%= f.submit "See chat history", class: "chat-button" %>
+            <%= f.submit "Send Message", class: "chat-button" %>
            </div>
-          <% end %>
         <% end %>
+
 
       </div>
 
-
+    <% end %>
     </aside>
 
     <!-- End comment sidebar -->

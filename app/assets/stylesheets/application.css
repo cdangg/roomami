@@ -63,3 +63,7 @@
 	width: 100%;
 	position: relative;
 }
+
+#chore_form {
+	display: none;
+}

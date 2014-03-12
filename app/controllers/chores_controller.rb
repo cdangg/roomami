@@ -21,7 +21,7 @@ class ChoresController < ApplicationController
     @chore.user_id = current_user.id
 
     if @chore.save
-      redirect_to chores_path, :notice => "Chore added!"
+      redirect_to house_chores_path, :notice => "Chore added!"
     else
       render :new, :alert => "Can't add"
     end
@@ -31,7 +31,7 @@ class ChoresController < ApplicationController
     @chore = Chore.find(params[:id])
 
     if @chore.update_attributes(chore_params)
-      redirect_to chores_path, :notice => "Chore updated"
+      redirect_to house_chores_path, :notice => "Chore updated"
     else
       render :edit, :alert => "Invalid request"
     end
@@ -44,7 +44,7 @@ class ChoresController < ApplicationController
     @chore = Chore.find(params[:chore_id])
     @chore.status = true
     @chore.save
-    redirect_to chores_path
+    redirect_to house_chores_path
   end
 
   def edit
@@ -55,7 +55,7 @@ class ChoresController < ApplicationController
   def destroy
     @chore = Chore.find(params[:id])
     @chore.destroy
-    redirect_to chores_path
+    redirect_to house_chores_path
   end
 
   private

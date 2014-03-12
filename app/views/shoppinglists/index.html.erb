@@ -1,0 +1,24 @@
+<h1 style="margin-bottom: 0px"><h2 class="subheader">Shopping Lists</h2></h1>
+
+<!-- sub nav -->
+<% if current_user && current_user.houses.any? %>
+  <dl id="user-house-list" class="sub-nav" data-active-id="<%= @house.id %>">
+    <dt>You're viewing:</dt>
+      <% current_user.houses.each do |h| %>
+        <dd active><%= link_to h.name, house_shoppinglists_path(h.id), class: "house-tab" %></dd>
+      <% end %>
+  </dl>
+<% end %>
+<!-- end sub nav -->
+<%= link_to "Add an Item", new_house_shoppinglist_path(@house) %><br><br>
+
+<% if current_user.houses %>
+  <% @shoppinglists.each do |list| %>
+    <div><strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "I finished it!", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %> </div>
+    <span><strong>Things to buy: </strong><%= list.name %></span>
+      <% if list.user.id == current_user.id%>
+        <span> | <%= link_to "Edit List", edit_house_shoppinglist_path(list.house.id, list.id) %></span>
+      <% end %>
+    <div><strong>Last updated: </strong><%= list.updated_at %></div><br>
+  <% end %>
+<% end %>

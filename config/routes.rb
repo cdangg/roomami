@@ -21,10 +21,14 @@ Roomami::Application.routes.draw do
       resources :chores do
         patch 'complete_task', on: :collection
       end
+      resources :shoppinglists do
+        patch 'complete_task', on: :collection
+      end
       resources :comments
     end
 
     resources :chores, only: :index
+    resources :shoppinglists, only: :index
     resources :users
     resources :sessions
 

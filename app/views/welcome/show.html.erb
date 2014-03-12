@@ -25,17 +25,24 @@ Hi, <%=current_user.first_name%>!
 <!-- End sub nav -->
 
 <div class="large-9 columns" role="content">
-    <div class="panel">
+    <div class="panel" id="incomplete_chores">
     <h5>Current Chore List</h5>
       <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
+      <% end %><br>
+    <h5>Current Shopping List</h5>
+      <% @house.shoppinglists.pending.each do |list| %>
+        <li><%= list.name %></li>
       <% end %>
     </div>
 
-  <div class="panel">
-    <h5>Completed Chores List</h5>
-      <% @house.chores.complete.limit(5).each do |chore| %>
+  <div class="panel" id="complete_chores">
+    <h5>Got It Covered Already!</h5>
+      <% @house.chores.complete.order(created_at: :desc).limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
+      <% end %>
+      <% @house.shoppinglists.complete.order(created_at: :desc).limit(5).each do |list| %>
+        <li><%= list.name %> [<em>bought by <%= list.user.first_name %></em>]</li>
       <% end %>
   </div>
 
@@ -77,16 +84,16 @@ Hi, <%=current_user.first_name%>!
            <div class="actions">
             <%= f.submit "Arg..Hear ye, Hear ye!", class: "chat-button" %>
            </div>
-          <% end %>
         <% end %>
-      </div>
+    </div>
       <br>
-     <a href="#"><font color="white">Read chat history...</font></a>
+      <a href="#"><font color="white"><%= link_to "Read chat history...", house_comments_path(@house) %></font></a>
     </div>
   </aside>
+<% end %>
 
 
-
+      </div>
 
     <!-- End chats sidebar -->
 

@@ -4,6 +4,7 @@ class House < ActiveRecord::Base
   has_many :tenancies
   has_many :tenants, through: :tenancies, source: 'user'
   has_many :comments
+  has_many :shoppinglists
   mount_uploader :image, ImageUploader
   belongs_to :admin, class_name: "User", foreign_key: :user_id
   geocoded_by :full_address

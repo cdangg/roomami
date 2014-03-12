@@ -12,7 +12,7 @@
         <%= link_to house.first_name, user_path(house.id) %>,
       <% end %>
   </div>
-  <div class="field"><strong>Description:</strong> <%= @house.description %></div>
+  <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
 
 </div>

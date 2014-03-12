@@ -5,20 +5,20 @@
   <dl id="user-house-list" class="sub-nav" data-active-id="<%= @house.id %>">
     <dt>You're viewing:</dt>
       <% current_user.houses.each do |h| %>
-        <dd><%= link_to h.name, chores_path(h.id, house_id: h.id), data: { id: h.id }, class: "house-tab" %></dd>
+        <dd><%= link_to h.name, house_chores_path(h.id), class: "house-tab" %></dd>
       <% end %>
   </dl>
 <% end %>
 <!-- end sub nav -->
 
-<%= link_to "Add Chore", new_chore_path(house_id: @house.id) %><br><br>
+<%= link_to "Add Chore", new_house_chore_path(@house) %><br><br>
 
 <% if current_user.houses %>
   <% @chores.each do |chore| %>
-    <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %> | <%= link_to "I finished it!", complete_task_chores_path(id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> </div>
+    <div><strong>User: </strong><%= chore.user.first_name %> <%= chore.user.last_name %> | <%= link_to "I finished it!", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %> </div>
     <span><strong>Chore: </strong><%= chore.name %><span>
       <% if chore.user.id == current_user.id%>
-        <span> | <%= link_to "Edit Chore", edit_chore_path(chore.id) %></span>
+        <span> | <%= link_to "Edit Chore", edit_house_chore_path(chore.house.id, chore.id) %></span>
       <% end %>
     <div><strong>Last updated: </strong><%= chore.updated_at %></div><br>
   <% end %>

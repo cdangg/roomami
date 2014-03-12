@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @house = House.find(params[:house_id])
+    @comments = @house.comments.all
     @comment = Comment.find(params[:id])
   end
 

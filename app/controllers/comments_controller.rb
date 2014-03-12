@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @house = House.find(params[:house_id])
+    @comments = @house.comments.all
   end
 
   def show

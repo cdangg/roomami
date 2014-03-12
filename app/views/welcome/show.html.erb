@@ -34,7 +34,7 @@ Hi, <%=current_user.first_name%>!
 
   <div class="panel">
     <h5>Completed Chores List</h5>
-      <% @house.chores.complete.limit(5).each do |chore| %>
+      <% @house.chores.complete.order(created_at: :desc).limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
       <% end %>
   </div>
@@ -75,7 +75,7 @@ Hi, <%=current_user.first_name%>!
            </div>
           <% end %>
         <% end %>
-        <a href="#"><%= link_to "Read More →" %></a>
+        <a href="#"><%= link_to "Read More →", house_comments_path(@house) %></a>
       </div>
 
     </aside>

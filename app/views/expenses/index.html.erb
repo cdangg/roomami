@@ -1,0 +1,35 @@
+<h1 style="margin-bottom: 0px"><h2 class="subheader">expenses</h2></h1>
+
+<!-- sub nav -->
+<% if current_user && current_user.houses.any? %>
+  <dl id="user-house-list" class="sub-nav" data-active-id="<%= @house.id %>">
+    <dt>You're viewing:</dt>
+      <% current_user.houses.each_with_index do |h, i| %>
+        <dd><%= link_to h.name, house_expenses_path(house_id: h.id), data: { id: h.id }, class: "house-tab" %></dd>
+      <% end %>
+  </dl>
+<% end %>
+<!-- end sub nav -->
+
+<%= link_to "Add expense", new_house_expense_path(@house) %><br><br>
+
+<% if current_user.houses %>
+  <% @expenses.each do |expense| %>
+    <span><strong>User: </strong><%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> </span>
+    <% if expense.user.id == current_user.id %>
+        <span> | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %></span><br>
+    <% end %>
+    <span><strong>expense: </strong><%= expense.description %></span><br>
+    <span><strong>amount: </strong><%= expense.amount %></span><br>
+    <span><strong>roommates: </strong><%= expense.roommates %></span><br>
+    <span><strong>split: </strong><%= expense.split %></span>
+
+    <div><strong>Last updated: </strong><%= expense.updated_at %></div><br>
+  <% end %>
+<% end %>
+
+
+
+
+
+

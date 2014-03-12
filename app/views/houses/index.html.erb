@@ -3,7 +3,7 @@
 <p>Find a house: </p>
 <%= form_tag houses_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", :class => "tiny button radius" %>
 <% end %>
 
 <% if @houses.nil? %>

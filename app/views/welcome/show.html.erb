@@ -13,7 +13,7 @@ Hi, <%=current_user.first_name%>!
 <% if current_user && current_user.houses.any? %>
 
   <dl id="user-house-list" class="sub-nav" data-active-id="<%= @house.id %>">
-    <dt>You're view:</dt>
+    <dt>You're viewing:</dt>
     <% current_user.houses.each_with_index do |h, i| %>
       <dd active><%= link_to h.name, welcome_path(house_id: h.id), data: { id: h.id }, class: 'house-tab' %></dd>
     <% end %>
@@ -71,13 +71,13 @@ Hi, <%=current_user.first_name%>!
             <%= f.text_area :content %>
            </div>
            <div class="actions">
-            <%= f.submit %>
+            <%= f.submit "See chat history", class: "chat-button" %>
            </div>
           <% end %>
         <% end %>
-        <a href="#">Read More →</a>
-      </div>
 
     </aside>
 
     <!-- End comment sidebar -->
+
+

@@ -35,5 +35,16 @@ $(document).on('page:change', function() {
   }
 });
 
+// $( document ).click(function() {
+//   $( "#toggle-chore" ).toggle( "drop" );
+// });
+
+
+// $(document).ready(function(){
+//   $('#toggle-chore').on('click', function() {
+//     $('div').toggle(option)
+//   })
+// });
+
 
 

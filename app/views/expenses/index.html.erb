@@ -19,10 +19,10 @@
     <% if expense.user.id == current_user.id %>
         <span> | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %></span><br>
     <% end %>
-    <span><strong>expense: </strong><%= expense.description %></span><br>
-    <span><strong>amount: </strong><%= expense.amount %></span><br>
-    <span><strong>roommates: </strong><%= expense.roommates %></span><br>
-    <span><strong>split: </strong><%= expense.split %></span>
+    <span><strong>Expense: </strong><%= expense.description %></span><br>
+    <span><strong>Amount: $</strong><%= expense.amount.round(2) %></span><br>
+    <span><strong>Roommates: </strong><%= expense.roommates %></span><br>
+    <span><strong>Split: $</strong><%= expense.split.round(2) %></span>
 
     <div><strong>Last updated: </strong><%= expense.updated_at %></div><br>
   <% end %>

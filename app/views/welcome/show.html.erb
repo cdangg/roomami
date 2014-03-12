@@ -29,13 +29,20 @@ Hi, <%=current_user.first_name%>!
     <h5>Current Chore List</h5>
       <% @house.chores.pending.each do |chore| %>
         <li> <%= chore.name %></li>
+      <% end %><br>
+    <h5>Current Shopping List</h5>
+      <% @house.shoppinglists.pending.each do |list| %>
+        <li><%= list.name %></li>
       <% end %>
     </div>
 
   <div class="panel">
-    <h5>Completed Chores List</h5>
+    <h5>Got It Covered Already!</h5>
       <% @house.chores.complete.order(created_at: :desc).limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
+      <% end %>
+      <% @house.shoppinglists.complete.order(created_at: :desc).limit(5).each do |list| %>
+        <li><%= list.name %> [<em>bought by <%= list.user.first_name %></em>]</li>
       <% end %>
   </div>
 

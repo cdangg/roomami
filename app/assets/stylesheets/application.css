@@ -44,7 +44,6 @@
 .add-house {
 	float: right;
 	display: inline-block;
-
 }
 
 .plus-button, .plus-button-small {
@@ -63,7 +62,7 @@
 	z-index: 2000;
 }
 
-.plus-button > a {
+.plus-button > a, .plus-button-small > a {
 	color: inherit;
 }
 

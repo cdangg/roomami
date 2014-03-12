@@ -26,27 +26,18 @@
 
   <%= form_tag sessions_path, :method => :post do %>
 
-  <center>
-   <div class="row">
-      <div class="small-4">
-        <div class="row">
-          <div class="small-12 columns">
-            <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
-          </div>
-        </div>
-      </div>
-    </div>
 
-     <div class="row">
-      <div class="small-4">
+   <div class="row">
+      <div class="medium-4 medium-centered columns">
         <div class="row">
-          <div class="small-12 columns">
+          <div class="medium-12 columns">
+            <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
             <%= password_field_tag :password, nil, :placeholder => "Password" %>
           </div>
         </div>
       </div>
     </div>
-  </center>
+
 
 
   <span class="actions"><%= submit_tag "Log in", :class => "button radius" %></span>  <a href="#" class="button radius" data-reveal-id="myModal" data-reveal>Sign Up</a>

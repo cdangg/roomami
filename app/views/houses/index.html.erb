@@ -1,6 +1,6 @@
 <h2 class="subheader" style="margin-bottom: 0px">Houses</h2>
 <%= link_to "Add House", new_house_path %><br><br>
-<p>Find a house: </p>
+<p>Find a house </p>
 <%= form_tag houses_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search", :class => "tiny button radius" %>

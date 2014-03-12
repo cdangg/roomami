@@ -1,4 +1,4 @@
-<h1 style="margin-bottom: 0px"><h2 class="subheader">expenses</h2></h1>
+<h1 style="margin-bottom: 0px"><h2 class="subheader">Expenses</h2></h1>
 
 <!-- sub nav -->
 <% if current_user && current_user.houses.any? %>
@@ -11,7 +11,7 @@
 <% end %>
 <!-- end sub nav -->
 
-<%= link_to "Add expense", new_house_expense_path(@house) %><br><br>
+<%= link_to "Add Expense", new_house_expense_path(@house) %><br><br>
 
 <% if current_user.houses %>
   <% @expenses.each do |expense| %>

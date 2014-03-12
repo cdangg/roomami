@@ -1,0 +1,15 @@
+var commentTitle = $('h5.title'),
+		comments = $('.comment'),
+		newComment = $('<div>')
+			.addClass('comment')
+			.html("<%= @comment.user.first_name %> says: <%= @comment.content %>");
+
+comments
+	.last().remove()
+	// .animate({
+	// 	left: '+=400px'
+	// }, 1000, function() { $(this).remove() })
+newComment.hide().insertAfter(commentTitle).slideDown(400);
+$('#comment_content').val("")
+
+

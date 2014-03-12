@@ -35,6 +35,7 @@ $(document).on('page:change', function() {
   }
 });
 
+
 // $( document ).click(function() {
 //   $( "#toggle-chore" ).toggle( "drop" );
 // });
@@ -45,6 +46,28 @@ $(document).on('page:change', function() {
 //     $('div').toggle(option)
 //   })
 // });
+
+
+$(document).ready(function(){
+  $("#new_comment").on("submit", function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr("action");
+    console.log(url);
+
+    $.ajax({
+      url: url,
+      data: $(this).serialize(),
+      type: "POST",
+      dataType: "json", 
+      success: function(data) {
+        console.log(data);
+        $(".comments-panel").text(data.comment);
+      }
+    });
+
+  });
+});
 
 
 

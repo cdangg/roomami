@@ -29,7 +29,7 @@ class TenanciesController < ApplicationController
     @tenancy = Tenancy.find(params[:id])
     @tenancy.destroy
     redirect_to houses_path
-    flash.now[:alert] = "Tenancy removed"
+    flash[:notice] = "Tenancy removed"
   end
 
   def show

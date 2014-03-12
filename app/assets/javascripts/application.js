@@ -33,19 +33,20 @@ $(document).on('page:change', function() {
       }
     })
   }
+});
 
-
-  $("form").on("submit", function(e) {
+$(document).ready(function(){
+  $("#new_comment").on("submit", function(e) {
     e.preventDefault();
 
     var url = $(this).attr("action");
     console.log(url);
 
-    $ajax({
+    $.ajax({
       url: url,
       data: $(this).serialize(),
       type: "POST",
-      datatype: "json", 
+      dataType: "json", 
       success: function(data) {
         console.log(data);
         $(".comments-panel").text(data.comment);
@@ -53,12 +54,6 @@ $(document).on('page:change', function() {
     });
 
   });
-
-
-
-
-
 });
-
 
 

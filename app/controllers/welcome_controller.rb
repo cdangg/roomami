@@ -18,6 +18,6 @@ class WelcomeController < ApplicationController
     end
 
     @comment = current_user.comments.new
-    @comments = @house.comments.order(created_at: :desc)
+    @comments = @house.comments.order(created_at: :desc).limit(10)
   end
 end

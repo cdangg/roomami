@@ -14,15 +14,15 @@
 
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :placeholder => "Name your item" %>
   </div>
   <div class="field">
     <%= f.label :amount %>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, :placeholder => "ie. 12.45" %>
   </div>
   <div class="field">
     <%= f.label "Split between" %>
-    <%= f.text_field :roommates %>
+    <%= f.text_field :roommates, :placeholder => "# of people" %>
   </div>
   <div class="actions">
     <%= f.submit "Create expense", class: "tiny button radius"%>

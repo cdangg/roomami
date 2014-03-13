@@ -14,7 +14,7 @@
 
 <form>
     <div class="field">
-      <%= image_tag @user.avatar_url(:thumb) if @user.avatar? %><br />
+      <%= image_tag @user.avatar_url(:thumb) %><br />
       <%= f.label 'Choose an avatar'%>
       <%= f.file_field :avatar %>
     </div>

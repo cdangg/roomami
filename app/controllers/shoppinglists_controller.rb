@@ -9,11 +9,12 @@ class ShoppinglistsController < ApplicationController
     else
       @house = current_user.houses.first
     end
-    @shoppinglists = @house.shoppinglists.pending
+    @shoppinglist = @house.shoppinglists.new
+    @shoppinglists = @house.shoppinglists.pending.order("shoppinglists.created_at desc")
   end
 
   def new
-    @shoppinglist = @house.shoppinglists.new()
+    @shoppinglist = @house.shoppinglists.new
   end
 
   def create

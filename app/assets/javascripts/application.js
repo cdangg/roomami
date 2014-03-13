@@ -94,14 +94,14 @@ $(document).ready(function(){
         $('#chore_name').val("");
       }
     });
-
   });
 
-
   $('#shoppinglist-form').show();
+  //   // $(this).hide();
+  // });
 
-  $('#shoppinglist').on("submit", function(e) {
-    e.preventDefault
+  $("#new_shoppinglist").on("submit", function(e) {
+    e.preventDefault();
 
     var url = $(this).attr("action");
     console.log(url);
@@ -113,26 +113,11 @@ $(document).ready(function(){
       type: "POST",
       success: function(data) {
         console.log(data);
-        var list = ich.list(data);
-        $(".incomplete-shopping-list").prepend(list);
-        // $('#')
+        var shoppinglist = ich.shoppinglist(data);
+        $(".incomplete-shopping-list").prepend(shoppinglist);
+        $('#shoppinglist_name').val("");
       }
-    })
+    });
   });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

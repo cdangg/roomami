@@ -23,11 +23,16 @@ class TenanciesController < ApplicationController
       flash.now[:alert] = "Tenancy already exists"
       render :index
     end
+  end
 
+  def destroy
+    @tenancy = Tenancy.find(params[:id])
+    @tenancy.destroy
+    redirect_to houses_path
+    flash[:notice] = "Tenancy removed"
   end
 
   def show
-
   end
 
   private

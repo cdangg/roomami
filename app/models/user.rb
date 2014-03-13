@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
 
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
   def current_step
     @current_step || steps.first
   end

@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
     @expense.user_id = current_user.id
 
     if @expense.save
-      redirect_to house_expenses_path, :notice => "expense added!"
+      redirect_to house_expenses_path, :notice => "Expense added!"
     else
       render :new, :alert => "Can't add"
     end
@@ -31,7 +31,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
 
     if @expense.update_attributes(expense_params)
-      redirect_to house_expenses_path, :notice => "expense updated"
+      redirect_to house_expenses_path, :notice => "Expense updated"
     else
       render :edit, :alert => "Invalid request"
     end

@@ -69,12 +69,12 @@ $(document).ready(function(){
 
 // new chore submission
 
-  $('#new_chore_link').on("click", function(e){
-    e.preventDefault();
+  // $('#new_chore_link').on("click", function(e){
+  //   e.preventDefault();
 
     $('#chore_form').show();
-    $(this).hide();
-  });
+  //   $(this).hide();
+  // });
 
   $("#new_chore").on("submit", function(a) {
     a.preventDefault();

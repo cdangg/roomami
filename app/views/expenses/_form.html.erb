@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label "Split between" %>
-    <%= f.text_field :roommates, :placeholder => "# of people" %>
+    <%= f.text_field :roommates, :placeholder => @house.tenants.count %>
   </div>
   <div class="actions">
     <%= f.submit "Create expense", class: "tiny button radius"%>

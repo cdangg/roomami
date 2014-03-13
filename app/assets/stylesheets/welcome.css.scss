@@ -94,6 +94,13 @@
   margin: 0 auto;
 }
 
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+
 // .panel{
 //   border: solid 8px;
 //   border-color: #25B4A1;

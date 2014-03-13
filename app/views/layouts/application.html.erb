@@ -7,7 +7,7 @@
    <link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Megrim' rel='stylesheet' type='text/css'>
 
-    <title><%= content_for?(:title) ? yield(:title) : "oomami" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Roomami" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -38,28 +38,28 @@
 
         <ul class="center">
           <li class="divider"></li>
-            <li><%= link_to "Home", welcome_path(current_user) %></li>
+            <li><%= link_to "Home", welcome_path(current_user), :class => "grow" %></li>
           <li class="divider"></li>
-            <li class="has-dropdown"><%= link_to "Profile", user_path(current_user) %>
+            <li class="has-dropdown"><%= link_to "Profile", user_path(current_user), :class => "grow" %>
               <ul class="dropdown">
                 <li><%= link_to "My Profile", user_path(current_user) %></li>
                 <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
               </ul>
             </li>
           <li class="divider"></li>
-            <li><%= link_to "Houses", houses_url %></li>
+            <li><%= link_to "Houses", houses_url, :class => "grow" %></li>
           <li class="divider"></li>
-            <li><%= link_to "Chores", chores_url %></li>
+            <li><%= link_to "Chores", chores_url, :class => "grow" %></li>
           <li class="divider"></li>
-            <li><%= link_to "Things to Buy", shoppinglists_url %></li>
+            <li><%= link_to "Things to Buy", shoppinglists_url, :class => "grow" %></li>
           <li class="divider"></li>
-            <li><%= link_to "Expenses", expenses_url %></li>
+            <li><%= link_to "Expenses", expenses_url, :class => "grow"%></li>
         </ul>
 
       <!-- Right Nav Section -->
           <ul class="right">
           <li class="divider"></li>
-            <li><%= link_to "Log out", logout_path %></a></li>
+            <li><%= link_to "Log out", logout_path, :class => "grow" %></a></li>
           <li class="divider"></li>
           </ul>
 

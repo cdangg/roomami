@@ -1,25 +1,28 @@
 <h1 style="margin-bottom: 0px"><%= @house.name %></h1>
 <%= link_to "Back", houses_path %> | <%= link_to "Edit", edit_house_path %> | <%= link_to "Delete", house_path(@house), method: :delete, data: { confirm: "Are you sure you want to do this??"} %><br><br>
 
+<div class="row">
+  <div class="large-6 columns">
+    <div class="panel-house-profile">
+      <div style="padding-left: 10px">
+        <div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
+        <div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
+        <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
+        <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
+      </div>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}"%>
+      </div>
+    </div>
 
-<div class="container" style="width: 450px; display: inline-block; display: inline; float: left; padding: 10px 0 10px 0">
-  <div style="padding-left: 10px">
-    <div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
-    <div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
-    <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
-    <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
-  </div>
-  <div style="border-top: 3px solid black; border-bottom: 4px solid black">
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
+  <div class="large-6 columns">
+
+    <div class="roommate-profile-panel">
+        <% @house.tenants.each do |tenant| %>
+        <ul class="small-block-grid-3"><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %><div style="width: 90px; border: 1px solid black; text-align: center"> <%= link_to tenant.full_name, user_path(tenant.id) %>
+        <ul>
+    </div>
+        <% end %>
   </div>
 </div>
 
-<!-- <div class="container"> -->
-<div class="profile-panel">
-  <!-- <div class="field" style="padding-left: 10px;"> -->
-    <% @house.tenants.each do |tenant| %>
-    <div style="display: inline-block; float:left; height: 100px; width: 100px; padding-left: 10px;"><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %> <div style="width: 90px; border: 1px solid black; text-align: center"><%= link_to tenant.full_name, user_path(tenant.id) %></div></div>
-    <% end %>
-  </div>
-</div>
-
+ <!-- <div style="width: 90px; border: 1px solid black; text-align: center"> -->

@@ -9,7 +9,7 @@
     <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
     <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
   </div>
-  <div style="border: 2px solid black">
+  <div style="border-top: 3px solid black; border-bottom: 4px solid black">
     <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
   </div>
 </div>

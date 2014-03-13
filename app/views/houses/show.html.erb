@@ -1,15 +1,29 @@
 <h1 style="margin-bottom: 0px"><%= @house.name %></h1>
 <%= link_to "Back", houses_path %> | <%= link_to "Edit", edit_house_path %> | <%= link_to "Delete", house_path(@house), method: :delete, data: { confirm: "Are you sure you want to do this??"} %><br><br>
 
-<div class="container">
-  <%= image_tag @house.image_url(:thumb), :class =>"house-image" %>
+<div class="container" style="width: 400px">
 	<div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
 	<div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
 	<div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
   <div class="field">
     <strong>Roomates:</strong>
       <% @house.tenants.each do |house| %>
-        <%= link_to house.first_name, user_path(house.id) %>,
+        <%= link_to house.full_name, user_path(house.id) %>,
+      <% end %>
+  </div>
+  <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
+
+</div>
+
+<div class="container" style="width: 400px; display: inline-block">
+  <div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
+  <div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
+  <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
+  <div class="field">
+    <strong>Roomates:</strong>
+      <% @house.tenants.each do |house| %>
+        <%= link_to house.full_name, user_path(house.id) %>,
       <% end %>
   </div>
   <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>

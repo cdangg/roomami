@@ -1,6 +1,7 @@
 class Expense < ActiveRecord::Base
 	belongs_to :house
   belongs_to :user
+  has_many :shoppinglists
 
   validates_presence_of :description
 

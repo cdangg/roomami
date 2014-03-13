@@ -29,7 +29,7 @@
           <% end %>
         <br>
         <span>
-          <strong>Things to buy: </strong><%= list.name %>
+          <strong>Item: </strong><%= list.name %>
         </span>
         <div>
           <strong>Last updated: </strong><%= list.updated_at %>
@@ -43,10 +43,9 @@
 <script id="shoppinglist" type="text/html">
   <div class="list-incomplete">
     <div>
-      <strong>User: </strong>{{ user_name }} // | <a data-confirm="Are you sure you purchased it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I bought it!</a>
+      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you bought it?!" data-method="patch" href="/houses/9/shoppinglists/complete_task?shoppinglist_id=23" rel="nofollow">Purchased</a> | <a href="/houses/9/shoppinglists/23/edit">Edit</a>
     </div>
-    <span><strong>Chore: </strong> {{ item_name }} | </span>
-    // <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
+    <span><strong>Item: </strong> {{ item_name }} </span>
     <div>
       <strong>Last updated: </strong>
       {{ created_at }}

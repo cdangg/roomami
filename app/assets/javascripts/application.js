@@ -72,7 +72,7 @@ $(document).ready(function(){
   // $('#new_chore_link').on("click", function(e){
   //   e.preventDefault();
 
-    $('#chore_form').show();
+  $('#chore_form').show();
   //   $(this).hide();
   // });
 
@@ -90,9 +90,26 @@ $(document).ready(function(){
       success: function(data) {
         console.log(data);
         var chore = ich.chore(data);
-        $(".incomplete_chore_list").append(chore);
+        $(".incomplete_chore_list").prepend(chore);
+        $('#chore_name').val("");
       }
     });
 
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

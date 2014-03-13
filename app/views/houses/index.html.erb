@@ -12,7 +12,9 @@
         <div class="container">
           <%= image_tag house.image_url(:thumb), :class =>"house-image" %>
           <div class="add-house">
-          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
+          <div class="google-maps">
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{house.latitude}%2C#{house.longitude}", :class => "map-image" %>
+          </div>
             <button class="plus-button">
               <%= link_to '+', tenancies_path({house_id: house.id, after_goto: houses_path }), method: :post %></button>
             </div>

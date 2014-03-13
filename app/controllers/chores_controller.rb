@@ -11,7 +11,7 @@ class ChoresController < ApplicationController
       @house = current_user.houses.first
     end
     @chore = @house.chores.new()
-    @chores = @house.chores.pending
+    @chores = @house.chores.pending.order("chores.created_at desc")
   end
 
   def new

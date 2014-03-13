@@ -3,7 +3,7 @@ Hi, <%=current_user.first_name%>!
 <hr />
 <div class="row">
   <div class="large-12 columns">
-    <h2 class="subheader">Dashboard   <%= image_tag("dashboardpic.png", :size => "40x40") %></h2>
+    <h2 class="subheader">Dashboard   <%= image_tag("dashboardpic.png", :size => "40x40", :style => "padding-bottom: 9px") %></h2>
   </div>
 </div>
 
@@ -56,7 +56,7 @@ Hi, <%=current_user.first_name%>!
       <div class="panel">
     <% if current_user %>
       <div class="comments-panel">
-        <h5 class="title">Say Something!</h5>
+        <h5 class="title"><i class="fi-comments size-36"></i>    Say Something!</h5>
         <% @comments.each do |comment|%>
         <div class="comment">
           <%= comment.user.first_name %> says:

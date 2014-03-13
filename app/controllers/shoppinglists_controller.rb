@@ -44,7 +44,8 @@ class ShoppinglistsController < ApplicationController
     @shoppinglist = Shoppinglist.find(params[:shoppinglist_id])
     @shoppinglist.status = true
     @shoppinglist.save
-    redirect_to house_shoppinglists_path
+    # redirect_to house_shoppinglists_path
+    redirect_to new_house_expense_path({:house_id => @house.id, :description => @shoppinglist.name })
   end
 
   def edit

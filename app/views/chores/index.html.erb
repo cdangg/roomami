@@ -20,6 +20,7 @@
 <div class="incomplete_chore_list">
   <% if current_user.houses %>
     <% @chores.each do |chore| %>
+      <div class="chore-incomplete">
       <div>
         <strong>User: </strong>
         <%= chore.user.first_name %> <%= chore.user.last_name %> |
@@ -38,20 +39,23 @@
         <strong>Last updated: </strong><%= chore.updated_at %>
       </div>
       <br>
+    </div>
     <% end %>
   <% end %>
 </div>
 
 <!-- template for new incomplete chore -->
 <script id="chore" type="text/html">
-  <div>
-    <strong>User: </strong>{{ user_name }} <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a>
-  </div>
-  <span><strong>Chore: </strong> {{ chore_name }}</span>
-  <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
-  <div>
-    <strong>Last updated: </strong>
-    {{ created_at }}
+  <div class="chore-incomplete">
+    <div>
+      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a>
+    </div>
+    <span><strong>Chore: </strong> {{ chore_name }} | </span>
+    <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
+    <div>
+      <strong>Last updated: </strong>
+      {{ created_at }}
+    </div>
   </div>
 </script>
 

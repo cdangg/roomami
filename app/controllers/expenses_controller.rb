@@ -13,7 +13,7 @@ class ExpensesController < ApplicationController
 
   def new
     @house = House.find(params[:house_id])
-    @expense = @house.expenses.new()
+    @expense = @house.expenses.new( :description => params[:description] )
   end
 
   def create

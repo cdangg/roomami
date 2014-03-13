@@ -94,6 +94,32 @@
   margin: 0 auto;
 }
 
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+.profile-panel {
+  border: solid;
+  border-color: black;
+  width: 450px;
+  display: inline-block;
+  display: inline;
+  float: left;
+  margin-left: 50px;
+  padding-top: 8px;
+}
+
+
+
+.container, .container-small {
+  border: 1.5px solid #000;
+  /*width: 100%;*/
+  min-height: 127px;
+  margin-bottom: 25px;
+}
+
 // .panel{
 //   border: solid 8px;
 //   border-color: #25B4A1;

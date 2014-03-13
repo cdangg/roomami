@@ -34,7 +34,7 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, :placeholder => "i.e. name@domain.com"%>
     </div>
-		<div class="field">
+		<div class="field" id="phone">
       <%= f.label :phone_number %><br />
       <%= f.telephone_field :phone_number, :placeholder => "i.e. 4162229999"%>
     </div>
@@ -53,7 +53,6 @@
 		<div class="actions"><%= f.submit "Submit", class: "tiny button radius" %></div>
 	<% end %>
 </form>
-
 
 <!-- <form>
   <label>Details</label>

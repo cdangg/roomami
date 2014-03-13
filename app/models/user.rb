@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_uniqueness_of :email
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
-  validates :phone_number, numericality: true, length: { is: 10 }, on: :update
 
   def current_step
     @current_step || steps.first

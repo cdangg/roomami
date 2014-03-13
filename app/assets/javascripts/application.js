@@ -30,6 +30,7 @@ $(function(){ jQuery(document).foundation(); });
 
 
 $(document).ready(function(){
+  phoneNumber();
 
   (function() {
     var userHouseList = $('#user-house-list');
@@ -57,13 +58,14 @@ $(document).ready(function(){
       url: url,
       data: $(this).serialize(),
       type: "POST",
-      dataType: "json", 
+      dataType: "json",
       success: function(data) {
         console.log(data);
         $(".comments-panel").text(data.comment);
       }
     });
   });
+
 
 // new chore submission
 
@@ -91,6 +93,6 @@ $(document).ready(function(){
         $(".incomplete_chore_list").append(chore);
       }
     });
-    
+
   });
 });

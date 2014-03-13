@@ -76,8 +76,8 @@ $(document).ready(function(){
   //   $(this).hide();
   // });
 
-  $("#new_chore").on("submit", function(a) {
-    a.preventDefault();
+  $("#new_chore").on("submit", function(e) {
+    e.preventDefault();
 
     var url = $(this).attr("action");
     console.log(url);
@@ -95,6 +95,29 @@ $(document).ready(function(){
       }
     });
 
+  });
+
+
+  $('#shoppinglist-form').show();
+
+  $('#shoppinglist').on("submit", function(e) {
+    e.preventDefault
+
+    var url = $(this).attr("action");
+    console.log(url);
+
+    $.ajax({
+      url: url,
+      data: $(this).serialize(),
+      dataType: "json",
+      type: "POST",
+      success: function(data) {
+        console.log(data);
+        var list = ich.list(data);
+        $(".incomplete-shopping-list").prepend(list);
+        // $('#')
+      }
+    })
   });
 });
 

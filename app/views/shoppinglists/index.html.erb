@@ -12,29 +12,33 @@
 <!-- end sub nav -->
 <%= link_to "Add an Item", new_house_shoppinglist_path(@house) %><br><br>
 
+<div id="shoppinglist-form">
+  <%= render "form" %>
+</div>
 
-
-<% if current_user.houses %>
-  <% @shoppinglists.each do |list| %>
-    <div class="new-shoppinglist-item">    
-      <span>
-        <strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "Purchased", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %>
-      </span>
-        <% if list.user.id == current_user.id%>
-          <span> 
-            | <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %>
-          </span>
-        <% end %>
-      <br>
-      <span>
-        <strong>Things to buy: </strong><%= list.name %>
-      </span>
-      <div>
-        <strong>Last updated: </strong><%= list.updated_at %>
+<div class="incomplete-shopping-list">
+  <% if current_user.houses %>
+    <% @shoppinglists.each do |list| %>
+      <div class="new-shoppinglist-item">    
+        <span>
+          <strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "Purchased", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %>
+        </span>
+          <% if list.user.id == current_user.id%>
+            <span> 
+              | <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %>
+            </span>
+          <% end %>
+        <br>
+        <span>
+          <strong>Things to buy: </strong><%= list.name %>
+        </span>
+        <div>
+          <strong>Last updated: </strong><%= list.updated_at %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <!-- template for new shopping list item -->
 <script id="shoppinglist" type="text/html">

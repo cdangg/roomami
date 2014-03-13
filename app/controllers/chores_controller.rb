@@ -11,7 +11,7 @@ class ChoresController < ApplicationController
       @house = current_user.houses.first
     end
     @chore = @house.chores.new()
-    @chores = @house.chores.pending
+    @chores = @house.chores.pending.order("chores.created_at desc")
   end
 
   def new
@@ -46,6 +46,7 @@ class ChoresController < ApplicationController
 
   def complete_task
     @chore = Chore.find(params[:chore_id])
+    @chore.user_id = current_user.id
     @chore.status = true
     @chore.save
     redirect_to house_chores_path

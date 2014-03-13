@@ -69,12 +69,12 @@ $(document).ready(function(){
 
 // new chore submission
 
-  $('#new_chore_link').on("click", function(e){
-    e.preventDefault();
+  // $('#new_chore_link').on("click", function(e){
+  //   e.preventDefault();
 
-    $('#chore_form').show();
-    $(this).hide();
-  });
+  $('#chore_form').show();
+  //   $(this).hide();
+  // });
 
   $("#new_chore").on("submit", function(a) {
     a.preventDefault();
@@ -90,9 +90,26 @@ $(document).ready(function(){
       success: function(data) {
         console.log(data);
         var chore = ich.chore(data);
-        $(".incomplete_chore_list").append(chore);
+        $(".incomplete_chore_list").prepend(chore);
+        $('#chore_name').val("");
       }
     });
 
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,12 +14,20 @@
 
 <% if current_user.houses %>
   <% @shoppinglists.each do |list| %>
+<<<<<<< HEAD
     <span><strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "Finished", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %> </span>
     <% if list.user.id == current_user.id%>
       <span> | <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %></span>
     <% end %>
     <br><span><strong>Things to buy: </strong><%= list.name %></span>
 
+=======
+    <div><strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "I bought it!", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %> </div>
+    <span><strong>Things to buy: </strong><%= list.name %></span>
+      <% if list.user.id == current_user.id%>
+        <span> | <%= link_to "Edit List", edit_house_shoppinglist_path(list.house.id, list.id) %></span>
+      <% end %>
+>>>>>>> 10bcf515789d5dfa50a5551f0d0f2717573b5003
     <div><strong>Last updated: </strong><%= list.updated_at %></div><br>
   <% end %>
 <% end %>

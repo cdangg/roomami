@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       if @user.houses.empty?
         redirect_to houses_path(current_user)
       else
-        redirect_to welcome_path(current_user)
+        redirect_to user_path(current_user)
       end
     else
       render :edit

@@ -15,7 +15,7 @@
 
 <% if current_user.houses %>
   <% @expenses.each do |expense| %>
-    <span><strong>User: </strong><%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> </span>
+    <span><strong>User: </strong><%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> </span><br>
     <% if expense.user.id == current_user.id %>
         <span> | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %></span><br>
     <% end %>

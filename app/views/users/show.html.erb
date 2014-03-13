@@ -1,7 +1,8 @@
 <h2 class="subheader">My Profile  <%= link_to "", edit_user_path(current_user), :class => "fi-clipboard-pencil size-28"%></h2>
 
 
-  <div><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></div>
+<div style="display: inline-block; float:left"><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></div><br>
+<div style="margin-top: -20px; top: 0px; margin-top: 0px; margin-left: 20px; display: inline-block; float:left">
   <div><%= @user.first_name %> <%= @user.last_name %></div>
   <div><%= @user.email %></div>
   <div><%= @user.phone_number %></div><br />
@@ -10,8 +11,8 @@
   <div>Interests: <%= @user.interests %></div>
   <div>Houses I've created:
     <% current_user.created_houses.each do |house| %>
-      <%= link_to house.name, house_path(house) %>,
+    <%= link_to house.name, house_path(house) %>,
     <% end %>
   </div>
-
+</div>
 

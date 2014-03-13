@@ -42,6 +42,7 @@ class ShoppinglistsController < ApplicationController
   def complete_task
     @house = House.find(params[:house_id])
     @shoppinglist = Shoppinglist.find(params[:shoppinglist_id])
+    @shoppinglist.user_id = current_user.id
     @shoppinglist.status = true
     @shoppinglist.save
     # redirect_to house_shoppinglists_path

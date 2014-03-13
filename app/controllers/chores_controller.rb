@@ -46,6 +46,7 @@ class ChoresController < ApplicationController
 
   def complete_task
     @chore = Chore.find(params[:chore_id])
+    @chore.user_id = current_user.id
     @chore.status = true
     @chore.save
     redirect_to house_chores_path

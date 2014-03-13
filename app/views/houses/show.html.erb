@@ -13,7 +13,7 @@
     <% end %>
   </div>
   <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}" %>
 </div>
 
 <div class="container" style="width: 450px; display: inline-block; display: inline; float: left; margin-left: 50px">

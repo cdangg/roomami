@@ -17,7 +17,7 @@
   <div>Houses I've created:
     <%=  %>
     <% current_user.created_houses.each do |house| %>
-    <%= link_to house.name, house_path(house) %>,
+    <%= link_to house.name, house_path(house) %> |
     <% end %>
   </div>
 </div>

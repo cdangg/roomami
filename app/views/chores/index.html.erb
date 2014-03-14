@@ -11,8 +11,6 @@
 <% end %>
 <!-- end sub nav -->
 
-<div style="padding-bottom: 20px"><%= link_to "Add Chore", new_house_chore_path(@house), id: "new_chore_link" %></div>
-
 <div id="chore_form">
   <%= render "form" %>
 </div>
@@ -48,10 +46,9 @@
 <script id="chore" type="text/html">
   <div class="chore-incomplete">
     <div>
-      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a>
+      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a> | <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
     </div>
-    <span><strong>Chore: </strong> {{ chore_name }} | </span>
-    <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
+    <span><strong>Chore: </strong> {{ chore_name }} </span>
     <div>
       <strong>Last updated: </strong>
       {{ created_at }}

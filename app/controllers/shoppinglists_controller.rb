@@ -1,6 +1,7 @@
 class ShoppinglistsController < ApplicationController
   before_filter :ensure_logged_in
   before_filter :contain_house?
+  before_filter :load_house, except: [:index, :destroy]
 
   def index
     if params[:house_id]
@@ -8,12 +9,12 @@ class ShoppinglistsController < ApplicationController
     else
       @house = current_user.houses.first
     end
-    @shoppinglists = @house.shoppinglists.pending
+    @shoppinglist = @house.shoppinglists.new
+    @shoppinglists = @house.shoppinglists.pending.order("shoppinglists.created_at desc")
   end
 
   def new
-    @house = House.find(params[:house_id])
-    @shoppinglist = @house.shoppinglists.new()
+    @shoppinglist = @house.shoppinglists.new
   end
 
   def create
@@ -21,7 +22,11 @@ class ShoppinglistsController < ApplicationController
     @shoppinglist.user_id = current_user.id
 
     if @shoppinglist.save
-      redirect_to house_shoppinglists_path, :notice => "Shopping list added!"
+      respond_to do |format|
+        format.html { redirect_to house_shoppinglists_path, :notice => "Shopping list added!" }
+        format.json { render json: { house_id: @house.id, shoppinglist_id: @shoppinglist.id, item_name: @shoppinglist.name, user_name: current_user.first_name + " " + current_user.last_name, created_at: @shoppinglist.created_at}}
+      end
+      
     else
       render :new, :alert => "Oops, something went wrong"
     end
@@ -40,7 +45,6 @@ class ShoppinglistsController < ApplicationController
   end
 
   def complete_task
-    @house = House.find(params[:house_id])
     @shoppinglist = Shoppinglist.find(params[:shoppinglist_id])
     @shoppinglist.status = true
     @shoppinglist.save
@@ -50,7 +54,6 @@ class ShoppinglistsController < ApplicationController
 
   def edit
     @shoppinglist = Shoppinglist.find(params[:id])
-    @house = House.find(params[:house_id])
   end
 
   def destroy
@@ -60,6 +63,10 @@ class ShoppinglistsController < ApplicationController
   end
 
   private
+   def load_house
+    @house = House.find(params[:house_id])
+  end
+
   def shoppinglist_params
     params.require(:shoppinglist).permit(:house_id, :name, :status)
   end

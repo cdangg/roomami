@@ -76,8 +76,8 @@ $(document).ready(function(){
   //   $(this).hide();
   // });
 
-  $("#new_chore").on("submit", function(a) {
-    a.preventDefault();
+  $("#new_chore").on("submit", function(e) {
+    e.preventDefault();
 
     var url = $(this).attr("action");
     console.log(url);
@@ -94,22 +94,30 @@ $(document).ready(function(){
         $('#chore_name').val("");
       }
     });
-
   });
+
+  $('#shoppinglist-form').show();
+  //   // $(this).hide();
+  // });
+
+  $("#new_shoppinglist").on("submit", function(e) {
+    e.preventDefault();
+
+    var url = $(this).attr("action");
+    console.log(url);
+
+    $.ajax({
+      url: url,
+      data: $(this).serialize(),
+      dataType: "json",
+      type: "POST",
+      success: function(data) {
+        console.log(data);
+        var shoppinglist = ich.shoppinglist(data);
+        $(".incomplete-shopping-list").prepend(shoppinglist);
+        $('#shoppinglist_name').val("");
+      }
+    });
+  });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

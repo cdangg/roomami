@@ -4,6 +4,9 @@ class Expense < ActiveRecord::Base
   has_many :shoppinglists
 
   validates_presence_of :description
+  validates_presence_of :amount
+  validates :amount, numericality: { only_interger: true }
+
 
   scope :complete, -> { where(status: true) }
   scope :pending, -> { where(status: false) }

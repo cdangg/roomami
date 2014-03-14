@@ -23,7 +23,7 @@ class ShoppinglistsController < ApplicationController
 
     if @shoppinglist.save
       respond_to do |format|
-        format.html { redirect_to house_shoppinglists_path, :notice => "Shopping list added!" }
+        format.html { redirect_to house_shoppinglists_path, :notice => "Shopping list item added!" }
         format.json { render json: { house_id: @house.id, shoppinglist_id: @shoppinglist.id, item_name: @shoppinglist.name, user_name: current_user.first_name + " " + current_user.last_name, created_at: @shoppinglist.created_at}}
       end
       

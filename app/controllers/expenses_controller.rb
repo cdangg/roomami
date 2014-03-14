@@ -22,7 +22,10 @@ class ExpensesController < ApplicationController
     @expense.user_id = current_user.id
 
     if @expense.save
-      redirect_to house_expenses_path, :notice => "Expense added!"
+      respond_to do |format|
+        format.html { redirect_to house_expenses_path, :notice => "Expense added!" }
+        format.json { render json: { house_id: @house.id, expense_id: @expense.id, user_name: current_user.first_name + " " + current_user.last_name, expense_name: @expense.description, amount: @expense.amount.round(2), roommates: @expense.roommates, split: @expense.split.round(2), created_at: @expense.updated_at } }
+      end
     else
       render :new, :alert => "Can't add"
     end
@@ -32,11 +35,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
 
     if @expense.update_attributes(expense_params)
-      respond_to do |format|
-        format.html { redirect_to house_expenses_path, :notice => "Expense updated" }
-        format.json { render json: { house_id: @house.id, expense_id: @expense.id, user_name: current_user.first_name + " " + current_user.last_name, expense_name: @expense.description, amount: @expense.amount.round(2), roommates: @expense.roommates, split: @expense.split.round(2), created_at: @expense.updated_at } }
-      end
-      
+      redirect_to house_expenses_path, :notice => "Expense updated"       
     else
       render :edit, :alert => "Invalid request"
     end

@@ -11,9 +11,7 @@
 <% end %>
 <!-- end sub nav -->
 
-<div id="expenses-form">
-  <%= render "form" %>
-</div>
+<%= link_to "Add Expenses", new_house_expense_path(@house) %><br>
 
 <div class="incomplete-expense-list">
   <% if current_user.houses %>

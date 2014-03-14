@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
   end
 
   def create
-    @expense = Expense.new(expense_params)
+    @expense = @house.expenses.build(expense_params)
     @expense.user_id = current_user.id
 
     if @expense.save

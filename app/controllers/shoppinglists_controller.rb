@@ -18,7 +18,7 @@ class ShoppinglistsController < ApplicationController
   end
 
   def create
-    @shoppinglist = Shoppinglist.new(shoppinglist_params)
+    @shoppinglist = @house.shoppinglists.build(shoppinglist_params)
     @shoppinglist.user_id = current_user.id
 
     if @shoppinglist.save

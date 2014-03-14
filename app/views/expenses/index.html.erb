@@ -12,23 +12,47 @@
 <!-- end sub nav -->
 
 <%= link_to "Add Expenses", new_house_expense_path(@house) %><br>
-<% if current_user.houses %>
-  <% @expenses.each do |expense| %>
-    <span><strong>Paid by: </strong><%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> </span>
-    <% if expense.user.id == current_user.id %>
-        <span> | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %></span>
+
+<div class="incomplete-expense-list">
+  <% if current_user.houses %>
+    <% @expenses.each do |expense| %>
+      <div class="new-expense-item">
+        <h4>
+          <strong>Expense: </strong><%= expense.description %><br>
+        </h4>
+        <h6>
+          <strong>Amount: $</strong><%= expense.amount.round(2) %><br>
+          <strong>Roommates: </strong><%= expense.roommates %><br>
+          <strong>Split: $</strong><%= expense.split.round(2) %><br>          
+          <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %>
+          <% if expense.user.id == current_user.id %>
+             | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %><br>
+          <% end %>
+          <strong>Created by: </strong><%= expense.user.first_name %> <%= expense.user.last_name %>
+          </h6>
+      </div>
     <% end %>
-    <br><span><strong>Expense: </strong><%= expense.description %></span><br>
-    <span><strong>Amount: $</strong><%= expense.amount.round(2) %></span><br>
-    <span><strong>Roommates: </strong><%= expense.roommates %></span><br>
-    <span><strong>Split: $</strong><%= expense.split.round(2) %></span>
-
-    <div><strong>Last updated: </strong><%= expense.updated_at %></div><br>
   <% end %>
-<% end %>
+</div>
 
+<!-- template for new shopping list item -->
 
-
+<script id="expense-list" type="text/html">
+  <div class="expense-incomplete">
+    <h4>
+      <strong>Expense: </strong>{{ expense_name }}
+      <strong>Amount: $</strong>{{ amount }}
+      <strong>Roommates: </strong>{{roommates}}
+      <strong>Split: $</strong>{{ split }}
+    </h4>
+    <h6> 
+      <a data-confirm="Are you sure paid this?" data-method="patch" href="/houses/{{ house_id }}/expenses/complete_task?expense_id={{ expense_id }}" rel="nofollow">Paid</a> | <a href="/houses/{{ house_id }}/expenses/{{ expense_id }}/edit">Edit</a>
+    </h6>
+    <span>
+      <strong>Created by: </strong>{{ user_name }}
+    </span>
+  </div>
+</script>
 
 
 

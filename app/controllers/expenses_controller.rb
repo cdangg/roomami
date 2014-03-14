@@ -8,7 +8,8 @@ class ExpensesController < ApplicationController
     else
       @house = current_user.houses.first
     end
-    @expenses = @house.expenses.pending
+    @expense = @house.expenses.new()
+    @expenses = @house.expenses.pending.order("expenses.created_at desc")
   end
 
   def new

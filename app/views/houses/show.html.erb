@@ -9,21 +9,21 @@
         <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
         <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}"%>
-      </div>
     </div>
-
+  </div>
 
     <div class="large-6 columns">
       <h4 style="margin-right: 20px;">Cool people living in this house:</h4>
       <div class="roommate-profile-panel">
         <ul class="small-block-grid-3">
          <% @house.tenants.each do |tenant| %>
-              <li><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %><br>
+              <li><%= image_tag tenant.avatar_url(:thumb), :size => "100x100" %><br>
               <center><%= link_to tenant.full_name, user_path(tenant.id)%></center></li>
           <% end %>
         </ul>
+      </div>
     </div>
-  </div>
+</div>
 
 
 

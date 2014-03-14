@@ -42,6 +42,7 @@ class ExpensesController < ApplicationController
   def complete_task
     @house = House.find(params[:house_id])
     @expense = Expense.find(params[:expense_id])
+    @expense.user_id = current_user.id
     @expense.status = true
     @expense.save
     redirect_to house_expenses_path

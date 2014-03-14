@@ -4,27 +4,27 @@
 <div class="row">
   <div class="large-6 columns">
     <div class="panel-house-profile">
-      <div style="padding-left: 10px">
         <div class="field"><strong>Address:</strong> <%= @house.full_address %></div>
         <div class="field"><strong>Bedroom(s):</strong> <%= @house.bedrooms %></div>
         <div class="field"><strong>Bathroom(s):</strong> <%= @house.bathrooms %></div>
         <div class="field"><strong>Description:</strong> <%= simple_format( @house.description ) %></div>
-      </div>
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@house.latitude}%2C#{@house.longitude}"%>
       </div>
     </div>
 
-  <div class="large-6 columns">
 
-    <div class="roommate-profile-panel">
-        <% @house.tenants.each do |tenant| %>
-        <ul class="small-block-grid-3"><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %><div style="width: 90px; border: 1px solid black; text-align: center"> <%= link_to tenant.full_name, user_path(tenant.id) %>
-        <ul>
+    <div class="large-6 columns">
+      <h4 style="margin-right: 20px;">Cool people living in this house:</h4>
+      <div class="roommate-profile-panel">
+        <ul class="small-block-grid-3">
+         <% @house.tenants.each do |tenant| %>
+              <li><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %><br>
+              <center><%= link_to tenant.full_name, user_path(tenant.id)%></center></li>
+          <% end %>
+        </ul>
     </div>
-        <% end %>
-
-
   </div>
-</div>
 
- <!-- <div style="width: 90px; border: 1px solid black; text-align: center"> -->
+
+
+

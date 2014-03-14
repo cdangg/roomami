@@ -11,7 +11,7 @@
 <% end %>
 <!-- end sub nav -->
 
-<%= link_to "Add Expense", new_house_expense_path(@house) %><br><br>
+<%= render "form" %>
 
 <% if current_user.houses %>
   <% @expenses.each do |expense| %>

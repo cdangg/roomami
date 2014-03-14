@@ -100,25 +100,23 @@ input, textarea {
   -webkit-border-radius: 0;
 }
 
-.profile-panel {
-  border: solid;
-  border-color: black;
-  width: 450px;
-  display: inline-block;
-  display: inline;
+.roommate-profile-panel {
+  border: solid 1px;
+  display: block;
   float: left;
-  margin-left: 50px;
-  padding-top: 8px;
+  padding: 10px;
+}
+
+.panel-house-profile {
+  border: solid 1px;
+  display: block;
+  float: left;
+  padding: 10px;
 }
 
 
 
-.container, .container-small {
-  border: 1.5px solid #000;
-  /*width: 100%;*/
-  min-height: 127px;
-  margin-bottom: 25px;
-}
+
 
 // .panel{
 //   border: solid 8px;

@@ -18,12 +18,12 @@
 <div class="incomplete-shopping-list">
   <% if current_user.houses %>
     <% @shoppinglists.each do |list| %>
-      <div class="new-shoppinglist-item">    
+      <div class="new-shoppinglist-item">
         <span>
           <strong>User: </strong><%= list.user.first_name %> <%= list.user.last_name %> | <%= link_to "Purchased", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %>
         </span>
           <% if list.user.id == current_user.id%>
-            <span> 
+            <span>
               | <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %>
             </span>
           <% end %>
@@ -41,7 +41,7 @@
 
 <!-- template for new shopping list item -->
 <script id="shoppinglist" type="text/html">
-  <div class="list-incomplete">
+  <div class="new-shoppinglist-incomplete">
     <div>
       <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you purchased it?!" data-method="patch" href="/houses/{{ house_id }}/shoppinglist/complete_task?chore_id={{ shoppinglist_id }}" rel="nofollow">I bought it!</a>
     </div>

@@ -19,25 +19,24 @@
   <% if current_user.houses %>
     <% @chores.each do |chore| %>
       <div class="chore-incomplete">
-      <div>
-        <strong>User: </strong>
-        <%= chore.user.first_name %> <%= chore.user.last_name %> |
-        <%= link_to "Finished", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %>
-      <% if chore.user.id == current_user.id %>
-        <span> |
-          <%= link_to "Edit", edit_house_chore_path(chore.house.id, chore.id) %>
+        <span>
+          <strong>User: </strong>
+          <%= chore.user.first_name %> <%= chore.user.last_name %> |
+          <%= link_to "Finished", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %>
         </span>
-      <% end %>
+          <% if chore.user.id == current_user.id %>
+            <span> |
+              <%= link_to "Edit", edit_house_chore_path(chore.house.id, chore.id) %>
+            </span>
+          <% end %>
+        <br>
+        <span>
+          <strong>Chore: </strong><%= chore.name %>
+        </span>
+        <div>
+          <strong>Last updated: </strong><%= chore.updated_at %>
+        </div>
       </div>
-      <span>
-        <strong>Chore: </strong>
-          <%= chore.name %>
-      </span>
-      <div>
-        <strong>Last updated: </strong><%= chore.updated_at %>
-      </div>
-      <br>
-    </div>
     <% end %>
   <% end %>
 </div>

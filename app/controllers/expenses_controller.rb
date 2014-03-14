@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_filter :ensure_logged_in
   before_filter :contain_house?
+  before_filter :load_house, except: [:index, :destroy]
 
   def index
     if params[:house_id]
@@ -8,11 +9,11 @@ class ExpensesController < ApplicationController
     else
       @house = current_user.houses.first
     end
-    @expenses = @house.expenses.pending
+    @expense = @house.expenses.new
+    @expenses = @house.expenses.pending.order("expenses.created_at desc")
   end
 
   def new
-    @house = House.find(params[:house_id])
     @expense = @house.expenses.new( :description => params[:description] )
   end
 
@@ -31,7 +32,11 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
 
     if @expense.update_attributes(expense_params)
-      redirect_to house_expenses_path, :notice => "Expense updated"
+      respond_to do |format|
+        format.html { redirect_to house_expenses_path, :notice => "Expense updated" }
+        format.json { render json: { house_id: @house.id, expense_id: @expense.id, user_name: current_user.first_name + " " + current_user.last_name, expense_name: @expense.description, amount: @expense.amount.round(2), roommates: @expense.roommates, split: @expense.split.round(2), created_at: @expense.updated_at } }
+      end
+      
     else
       render :edit, :alert => "Invalid request"
     end
@@ -40,7 +45,6 @@ class ExpensesController < ApplicationController
   end
 
   def complete_task
-    @house = House.find(params[:house_id])
     @expense = Expense.find(params[:expense_id])
     @expense.status = true
     @expense.save
@@ -49,7 +53,6 @@ class ExpensesController < ApplicationController
 
   def edit
     @expense = Expense.find(params[:id])
-    @house = House.find(params[:house_id])
   end
 
   def destroy
@@ -59,6 +62,10 @@ class ExpensesController < ApplicationController
   end
 
   private
+  def load_house
+    @house = House.find(params[:house_id])
+  end
+
   def expense_params
     params.require(:expense).permit(:description, :house_id, :user_id, :status, :amount, :roommates)
   end

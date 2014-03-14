@@ -120,4 +120,36 @@ $(document).ready(function(){
     });
   });
 
+  $('.new_expense').show();
+
+  // $("#new_expenselist").on("submit", function(e) {
+  //   e.preventDefault();
+
+  //   var url = $(this).attr("action");
+  //   console.log(url);
+
+  //   $.ajax({
+  //     url: url,
+  //     data: $(this).serialize(),
+  //     dataType: "json",
+  //     type: "POST",
+  //     success: function(data) {
+  //       // console.log(data);
+  //       // var expenselist = ich.expenselist(data);
+  //       $(".incomplete-expense-list").prepend(expenselist);
+  //       $("#expense_description").val("");
+  //       $("#expense_amount").val("");
+  //       $("#expense_roommate").val("");
+  //     }
+  //   });
+  // });
 });
+
+
+
+
+
+
+
+
+

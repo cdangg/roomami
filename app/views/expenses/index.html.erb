@@ -13,23 +13,68 @@
 
 <%= render "form" %>
 
-<% if current_user.houses %>
-  <% @expenses.each do |expense| %>
-    <span><strong>User: </strong><%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> </span>
-    <% if expense.user.id == current_user.id %>
-        <span> | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %></span>
+<div class="incomplete-expense-list">
+  <% if current_user.houses %>
+    <% @expenses.each do |expense| %>
+      <div class="new-expense-item">
+        <span>
+          <strong>User: </strong>
+          <%= expense.user.first_name %> <%= expense.user.last_name %> | <%= link_to "Paid", complete_task_house_expenses_path(expense.house.id, expense_id: expense.id), method: :patch, data: { confirm: "Are you sure paid this?"} %> 
+        </span>
+        <% if expense.user.id == current_user.id %>
+            <span>
+             | <%= link_to "Edit", edit_house_expense_path(expense.house.id, expense.id) %>
+           </span>
+        <% end %>
+        <br>
+        <span>
+          <strong>Expense: </strong>
+          <%= expense.description %>
+        </span>
+        <br>
+        <span>
+          <strong>Amount: $</strong><%= expense.amount.round(2) %>
+        </span>
+        <br>
+        <span><strong>Roommates: </strong><%= expense.roommates %>
+        </span>
+        <br>
+        <span>
+          <strong>Split: $</strong><%= expense.split.round(2) %>
+        </span>
+        <div>
+          <strong>Last updated: </strong><%= expense.updated_at %>
+        </div>
+        <br>
+      </div>
     <% end %>
-    <br><span><strong>Expense: </strong><%= expense.description %></span><br>
-    <span><strong>Amount: $</strong><%= expense.amount.round(2) %></span><br>
-    <span><strong>Roommates: </strong><%= expense.roommates %></span><br>
-    <span><strong>Split: $</strong><%= expense.split.round(2) %></span>
-
-    <div><strong>Last updated: </strong><%= expense.updated_at %></div><br>
   <% end %>
-<% end %>
+</div>
 
+<!-- template for new shopping list item -->
 
-
+<script id="expense-list" type="text/html">
+  <div class="expense-incomplete">
+    <span>
+      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure paid this?" data-method="patch" href="/houses/{{ house_id }}/expenses/complete_task?expense_id={{ expense_id }}" rel="nofollow">Paid</a> | <a href="/houses/{{ house_id }}/expenses/{{ expense_id }}/edit">Edit</a>
+    </span>
+    <span>
+      <strong>Expense: </strong>{{ expense_name }}
+    </span>
+    <span>
+      <strong>Amount: $</strong>{{ amount }}
+    </span>
+    <span>
+      <strong>Roommates: </strong>{{roommates}}
+    </span>
+    <span>
+      <strong>Split: $</strong>{{ split }}
+    </span>
+    <span>
+      <strong>Last updated: </strong>{{ created_at }}
+    </span>
+  </div>
+</script>
 
 
 

@@ -17,25 +17,15 @@
 
 <div class="incomplete_chore_list">
   <% if current_user.houses %>
-    <% @chores.each do |chore| %>
+  <% @chores.each do |chore| %>
       <div class="chore-incomplete">
-        <span>
-          <strong>User: </strong>
-          <%= chore.user.first_name %> <%= chore.user.last_name %> |
-          <%= link_to "Finished", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %>
-        </span>
-          <% if chore.user.id == current_user.id %>
-            <span> |
-              <%= link_to "Edit", edit_house_chore_path(chore.house.id, chore.id) %>
-            </span>
+          <h4><br><strong>Chore:</strong>
+          <%= chore.name %></h4><h6><%= link_to "It's done!", complete_task_house_chores_path(chore.house.id, chore_id: chore.id), method: :patch, data: { confirm: "Are you sure you finished it?!"} %>
+          <% if chore.user.id == current_user.id %> |
+            <%= link_to "Edit", edit_house_chore_path(chore.house.id, chore.id) %></h6>
           <% end %>
-        <br>
-        <span>
-          <strong>Chore: </strong><%= chore.name %>
-        </span>
-        <div>
-          <strong>Last updated: </strong><%= chore.updated_at %>
-        </div>
+          <strong>Created by: </strong>
+            <%= chore.user.first_name %> <%= chore.user.last_name %>
       </div>
     <% end %>
   <% end %>

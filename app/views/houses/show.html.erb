@@ -17,7 +17,7 @@
       <div class="roommate-profile-panel">
         <ul class="small-block-grid-3">
          <% @house.tenants.each do |tenant| %>
-              <li><%= image_tag tenant.avatar_url(:thumb) if tenant.avatar? %><br>
+              <li><%= image_tag tenant.avatar_url(:thumb), :size => "100x100" %><br>
               <center><%= link_to tenant.full_name, user_path(tenant.id)%></center></li>
           <% end %>
         </ul>

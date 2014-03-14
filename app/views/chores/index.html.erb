@@ -35,12 +35,18 @@
 <script id="chore" type="text/html">
   <div class="chore-incomplete">
     <div>
-      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">I finished it!</a> | <a href="/houses/{{ house_id }}/chores/{{ chore_id }}/edit">Edit Chore</a>
-    </div>
-    <span><strong>Chore: </strong> {{ chore_name }} </span>
-    <div>
-      <strong>Last updated: </strong>
-      {{ created_at }}
+      <h4>
+        <strong>Chore: </strong>{{ chore_name }}
+      </h4>
+
+      <h6>
+        <a data-confirm="Are you sure you finished it?!" data-method="patch" href="/houses/{{ house_id }}/chores/complete_task?chore_id={{ chore_id }}" rel="nofollow">It's done!</a> | 
+
+        <a href="/houses/{{ house_id }}/chores/{chore_id }}/edit">Edit</a>
+      </h6>
+
+      
+      <strong>Created by: </strong>{{ user_name }}
     </div>
   </div>
 </script>

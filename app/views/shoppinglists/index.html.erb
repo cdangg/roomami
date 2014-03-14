@@ -43,7 +43,7 @@
 <script id="shoppinglist" type="text/html">
   <div class="list-incomplete">
     <div>
-      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you bought it?!" data-method="patch" href="/houses/9/shoppinglists/complete_task?shoppinglist_id=23" rel="nofollow">Purchased</a> | <a href="/houses/9/shoppinglists/23/edit">Edit</a>
+      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you bought it?!" data-method="patch" href="/houses/{{ house_id }}/shoppinglists/complete_task?shoppinglist_id={{ shopping_id }}" rel="nofollow">Purchased</a> | <a href="/houses/{{ house_id }}/shoppinglists/{{ shoppinglist_id }}/edit">Edit</a>
     </div>
     <span><strong>Item: </strong> {{ item_name }} </span>
     <div>

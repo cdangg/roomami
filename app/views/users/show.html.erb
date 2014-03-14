@@ -1,7 +1,7 @@
 <h2 class="subheader">My Profile  <%= link_to "", edit_user_path(current_user), :class => "fi-clipboard-pencil size-28"%></h2>
 
 
-<div style="display: inline-block; float:left"><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></div><br>
+<div style="display: inline-block; float:left"><%= image_tag @user.avatar_url(:thumb), :size => "200x200", :style => "margin-top: 18px"%></div><br>
 <div style="margin-top: -20px; top: 0px; margin-top: 0px; margin-left: 20px; display: inline-block; float:left">
   <div>Name: <%= @user.first_name %> <%= @user.last_name %></div>
   <div>Email: <%= @user.email %></div>

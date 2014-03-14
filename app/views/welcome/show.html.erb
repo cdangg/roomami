@@ -27,22 +27,29 @@ Hi, <%=current_user.first_name%>!
 <div class="large-9 columns" role="content">
     <div class="panel" id="incomplete_chores">
     <h5>Current Chore List</h5>
-      <% @house.chores.pending.each do |chore| %>
+      <% @house.chores.pending.order(created_at: :desc).each do |chore| %>
         <li> <%= chore.name %></li>
       <% end %><br>
     <h5>Current Shopping List</h5>
-      <% @house.shoppinglists.pending.each do |list| %>
+      <% @house.shoppinglists.pending.order(created_at: :desc).each do |list| %>
         <li><%= list.name %></li>
+      <% end %>
+    <h5>Current Expense List</h5>
+      <% @house.expenses.pending.order(created_at: :desc).each do |expense| %>
+        <li><%= expense.description %> for $<%= expense.split %></li>
       <% end %>
     </div>
 
   <div class="panel" id="complete_chores">
     <h5>Got It Covered Already!</h5>
-      <% @house.chores.complete.order(created_at: :desc).limit(5).each do |chore| %>
+      <% @house.chores.complete.order(updated_at: :desc).limit(5).each do |chore| %>
         <li><%= chore.name %> [<em>completed by <%= chore.user.first_name %></em>]</li>
       <% end %>
-      <% @house.shoppinglists.complete.order(created_at: :desc).limit(5).each do |list| %>
+      <% @house.shoppinglists.complete.order(updated_at: :desc).limit(5).each do |list| %>
         <li><%= list.name %> [<em>bought by <%= list.user.first_name %></em>]</li>
+      <% end %>
+      <% @house.expenses.complete.order(updated_at: :desc).limit(5).each do |expense| %>
+        <li><%= expense.description %> [<em>paid by <%= expense.user.first_name %></em>]</li>
       <% end %>
   </div>
 

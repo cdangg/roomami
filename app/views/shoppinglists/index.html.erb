@@ -19,19 +19,16 @@
   <% if current_user.houses %>
     <% @shoppinglists.each do |list| %>
       <div class="new-shoppinglist-item">
-          <h4><br><strong>Item: </strong><%= list.name %></h4><%= link_to "Purchased", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %>
-          <strong>Created by: </strong><%= list.user.first_name %> <%= list.user.last_name %>
+          <h4><strong>Item: </strong><%= list.name %></h4><h6><%= link_to "Purchased", complete_task_house_shoppinglists_path(list.house.id, shoppinglist_id: list.id), method: :patch, data: { confirm: "Are you sure you bought it?!"} %>
           <% if list.user.id == current_user.id%>
-            <span>
-              | <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %>
-            </span>
+            <%= link_to "Edit", edit_house_shoppinglist_path(list.house.id, list.id) %></h6>
           <% end %>
+          <strong>Created by: </strong>
+          <%= list.user.first_name %> <%= list.user.last_name %>
       </div>
     <% end %>
   <% end %>
 </div>
-
-
 
 <!-- template for new shopping list item -->
 <script id="shoppinglist" type="text/html">

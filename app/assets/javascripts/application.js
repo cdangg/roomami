@@ -112,7 +112,7 @@ $(document).ready(function(){
       dataType: "json",
       type: "POST",
       success: function(data) {
-        console.log(data);
+        // console.log(data);
         var shoppinglist = ich.shoppinglist(data);
         $(".incomplete-shopping-list").prepend(shoppinglist);
         $('#shoppinglist_name').val("");

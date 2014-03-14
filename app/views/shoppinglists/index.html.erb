@@ -41,7 +41,7 @@
 
 <!-- template for new shopping list item -->
 <script id="shoppinglist" type="text/html">
-  <div class="list-incomplete">
+  <div class="new-shoppinglist-item">
     <div>
       <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure you bought it?!" data-method="patch" href="/houses/{{ house_id }}/shoppinglists/complete_task?shoppinglist_id={{ shopping_id }}" rel="nofollow">Purchased</a> | <a href="/houses/{{ house_id }}/shoppinglists/{{ shoppinglist_id }}/edit">Edit</a>
     </div>

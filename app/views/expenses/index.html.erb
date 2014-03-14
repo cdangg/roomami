@@ -11,7 +11,7 @@
 <% end %>
 <!-- end sub nav -->
 
-<%= render "form" %>
+<%= link_to "Add Expenses", new_house_expense_path(@house) %><br>
 
 <div class="incomplete-expense-list">
   <% if current_user.houses %>
@@ -55,23 +55,17 @@
 
 <script id="expense-list" type="text/html">
   <div class="expense-incomplete">
-    <span>
-      <strong>User: </strong>{{ user_name }} | <a data-confirm="Are you sure paid this?" data-method="patch" href="/houses/{{ house_id }}/expenses/complete_task?expense_id={{ expense_id }}" rel="nofollow">Paid</a> | <a href="/houses/{{ house_id }}/expenses/{{ expense_id }}/edit">Edit</a>
-    </span>
-    <span>
+    <h4>
       <strong>Expense: </strong>{{ expense_name }}
-    </span>
-    <span>
       <strong>Amount: $</strong>{{ amount }}
-    </span>
-    <span>
       <strong>Roommates: </strong>{{roommates}}
-    </span>
-    <span>
       <strong>Split: $</strong>{{ split }}
-    </span>
+    </h4>
+    <h6> 
+      <a data-confirm="Are you sure paid this?" data-method="patch" href="/houses/{{ house_id }}/expenses/complete_task?expense_id={{ expense_id }}" rel="nofollow">Paid</a> | <a href="/houses/{{ house_id }}/expenses/{{ expense_id }}/edit">Edit</a>
+    </h6>
     <span>
-      <strong>Last updated: </strong>{{ created_at }}
+      <strong>Created by: </strong>{{ user_name }}
     </span>
   </div>
 </script>
